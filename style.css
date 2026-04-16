@@ -430,14 +430,23 @@ body {
     padding: 15px; 
 }
 
-.gba-header { 
-    background: var(--primary);
-    color: white; 
-    text-align: center; 
-    margin: -15px -15px 15px -15px; 
-    padding: 10px; 
-    border-bottom: 3px solid #000; 
-    text-transform: uppercase; 
+.gba-header {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-weight: 900;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  line-height: 1;
+  padding: 10px 0;
+  margin: -15px -15px 15px -15px;
+  border-bottom: 3px solid #000;
+  text-shadow:
+    1px 1px 0 #3b2a8a,
+    -1px 0 0 #3b2a8a,
+    0 -1px 0 #3b2a8a;
 }
 
 /* STATUS ROW */
