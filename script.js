@@ -2623,13 +2623,13 @@ window.chooseStarter = function(name) {
     document.getElementById('starter-screen').style.display = 'none';
     document.getElementById('battle-panel').style.display = 'flex';
     document.getElementById('side-panels').style.display = 'flex';
-    player.totalAtk = player.team.reduce((sum, p) => sum + calculateAtk(p.name, p.lvl, p.isShiny), 0);
+    player.totalAtk = player.team.reduce((sum, p) => sum + calculateAtk(p.name, p.lvl, p.isShiny), 0);    
     updateUI();
     spawnEnemy();
     setInterval(() => {
-        if (currentEnemy && currentEnemy.hp > 0) {
-            currentEnemy.hp -= (player.totalAtk / 10);
-            if (currentEnemy.hp <= 0) handleVictory();
+        if (currentEnemy && currentEnemy.currentHp > 0) {
+            currentEnemy.currentHp -= (player.totalAtk / 10);
+            if (currentEnemy.currentHp <= 0) handleVictory();
             updateHPDisplay();
         }
     }, 100);
@@ -2651,39 +2651,52 @@ window.sortTeam = function(key) {
 
 function spawnEnemy() {
     const route = WORLD_ROUTES[player.currentRouteIndex];
-    let name = "";
+    const encounters = route.encounters;
 
     let totalWeight = 0;
-    for (let i = 0; i < route.encounters.length; i += 2) {
-        totalWeight += route.encounters[i + 1];
+    for (let i = 0; i < encounters.length; i += 2) {
+        totalWeight += encounters[i + 1];
     }
 
-    let randomNum = Math.floor(Math.random() * totalWeight);
-    let cumulative = 0;
+    let randomNum = Math.random() * totalWeight;
 
-    for (let i = 0; i < route.encounters.length; i += 2) {
-        cumulative += route.encounters[i + 1];
+    let cumulative = 0;
+    let name = null;
+
+    for (let i = 0; i < encounters.length; i += 2) {
+        const pokemonName = encounters[i];
+        const weight = encounters[i + 1];
+
+        cumulative += weight;
+
         if (randomNum < cumulative) {
-            name = route.encounters[i];
+            name = pokemonName;
             break;
         }
     }
 
-    if (!name) name = route.encounters[0];
+    if (!name) {
+        name = encounters[0];
+    }
 
+    const data = POKEMON_DATA[name];
     const isShiny = Math.random() * 100 < SHINY_CHANCE;
-    const stats = POKEMON_DATA[name];
-
-    document.getElementById('current-map').innerText = route.name;
-    document.getElementById('route-kill-count').innerText = fmt(route.defeated);
-
-    let enemyLvl = 5 + (player.currentRouteIndex * 2);
-    let routeMultiplier = 3.0 * Math.pow(1.20, player.currentRouteIndex);
-    let maxHp = Math.floor((((stats.hp * 2) * enemyLvl / 10) + 20) * routeMultiplier);
+    const enemyLvl = 5 + (player.currentRouteIndex * 2);
+    const routeMultiplier = 3.0 * Math.pow(1.20, player.currentRouteIndex);
+    let maxHp = Math.floor((((data.hp * 2) * enemyLvl / 10) + 20) * routeMultiplier);
 
     if (isShiny) maxHp = Math.floor(maxHp * 1.5);
 
-    currentEnemy = { name, hp: maxHp, maxHp, lvl: enemyLvl, isShiny };
+    currentEnemy = {
+        name,
+        currentHp: maxHp,
+        maxHp,
+        lvl: enemyLvl,
+        isShiny
+    };
+
+    document.getElementById('current-map').innerText = route.name;
+    document.getElementById('route-kill-count').innerText = fmt(route.defeated);
 
     const nameEl = document.getElementById('enemy-name');
 
@@ -2694,7 +2707,7 @@ function spawnEnemy() {
     nameEl.className = '';
 
     document.getElementById('enemy-img-container').innerHTML =
-        `<img src="${getSpriteUrl(stats.id, isShiny)}">`;
+        `<img src="${getSpriteUrl(data.id, isShiny)}">`;
 
     updateHPDisplay();
 }
@@ -2788,7 +2801,7 @@ function updateUI() {
 
 function updateHPDisplay() {
     const hpBar = document.getElementById('enemy-hp-bar');
-    const p = Math.max(0, (currentEnemy.hp / currentEnemy.maxHp) * 100);
+    const p = Math.max(0, (currentEnemy.currentHp / currentEnemy.maxHp) * 100);
     hpBar.style.width = p + "%";
 
     if (p > 75) hpBar.style.backgroundColor = "#78c850";
@@ -2796,7 +2809,7 @@ function updateHPDisplay() {
     else if (p > 25) hpBar.style.backgroundColor = "#f08030";
     else hpBar.style.backgroundColor = "#f03030";
 
-    document.getElementById('hp-current').innerText = fmt(currentEnemy.hp);
+    document.getElementById('hp-current').innerText = fmt(currentEnemy.currentHp);
     document.getElementById('hp-max').innerText = fmt(currentEnemy.maxHp);
 }
 
@@ -2860,7 +2873,7 @@ window.openRouteDex = function() {
 
     // 🔹 Agora percorre só os únicos
     uniqueNames.forEach(pkName => {
-        const stats = POKEMON_DATA[pkName];
+        const stats = POKEMON_DATA[pkName];        
         if (!stats) return;
 
         const hasNormal = player.team.some(p => p.name === pkName && !p.isShiny);
