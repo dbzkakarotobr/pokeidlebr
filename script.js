@@ -1,6 +1,7 @@
 const POKEMON_DATA = {
   "Bulbasaur": {
     id: 1,
+    types: ["grass", "poison"],
     stage: "basic",
     hp: 45,
     atk: 49,
@@ -18,6 +19,7 @@ const POKEMON_DATA = {
 
   "Ivysaur": {
     id: 2,
+    types: ["grass", "poison"],
     stage: "mid",
     hp: 60,
     atk: 62,
@@ -35,6 +37,7 @@ const POKEMON_DATA = {
 
   "Venusaur": {
     id: 3,
+    types: ["grass", "poison"],
     stage: "final",
     hp: 80,
     atk: 82,
@@ -48,6 +51,7 @@ const POKEMON_DATA = {
 
   "Charmander": {
     id: 4,
+    types: ["fire"],
     stage: "basic",
     hp: 39,
     atk: 52,
@@ -65,6 +69,7 @@ const POKEMON_DATA = {
 
   "Charmeleon": {
     id: 5,
+    types: ["fire"],
     stage: "mid",
     hp: 58,
     atk: 64,
@@ -82,6 +87,7 @@ const POKEMON_DATA = {
 
   "Charizard": {
     id: 6,
+    types: ["fire", "flying"],
     stage: "final",
     hp: 78,
     atk: 84,
@@ -95,6 +101,7 @@ const POKEMON_DATA = {
 
   "Squirtle": {
     id: 7,
+    types: ["water"],
     stage: "basic",
     hp: 44,
     atk: 48,
@@ -112,6 +119,7 @@ const POKEMON_DATA = {
 
   "Wartortle": {
     id: 8,
+    types: ["water"],
     stage: "mid",
     hp: 59,
     atk: 63,
@@ -129,6 +137,7 @@ const POKEMON_DATA = {
 
   "Blastoise": {
     id: 9,
+    types: ["water"],
     stage: "final",
     hp: 79,
     atk: 83,
@@ -142,6 +151,7 @@ const POKEMON_DATA = {
 
   "Caterpie": {
     id: 10,
+    types: ["bug"],
     stage: "basic",
     hp: 45,
     atk: 30,
@@ -159,6 +169,7 @@ const POKEMON_DATA = {
 
   "Metapod": {
     id: 11,
+    types: ["bug"],
     stage: "mid",
     hp: 50,
     atk: 20,
@@ -176,6 +187,7 @@ const POKEMON_DATA = {
 
   "Butterfree": {
     id: 12,
+    types: ["bug", "flying"],
     stage: "final",
     hp: 60,
     atk: 45,
@@ -189,6 +201,7 @@ const POKEMON_DATA = {
 
   "Weedle": {
     id: 13,
+    types: ["bug", "poison"],
     stage: "basic",
     hp: 40,
     atk: 35,
@@ -206,6 +219,7 @@ const POKEMON_DATA = {
 
   "Kakuna": {
     id: 14,
+    types: ["bug", "poison"],
     stage: "mid",
     hp: 45,
     atk: 25,
@@ -223,6 +237,7 @@ const POKEMON_DATA = {
 
   "Beedrill": {
     id: 15,
+    types: ["bug", "poison"],
     stage: "final",
     hp: 65,
     atk: 90,
@@ -236,6 +251,7 @@ const POKEMON_DATA = {
 
   "Pidgey": {
     id: 16,
+    types: ["normal", "flying"],
     stage: "basic",
     hp: 40,
     atk: 45,
@@ -253,6 +269,7 @@ const POKEMON_DATA = {
 
   "Pidgeotto": {
     id: 17,
+    types: ["normal", "flying"],
     stage: "mid",
     hp: 63,
     atk: 60,
@@ -270,6 +287,7 @@ const POKEMON_DATA = {
 
   "Pidgeot": {
     id: 18,
+    types: ["normal", "flying"],
     stage: "final",
     hp: 83,
     atk: 80,
@@ -283,6 +301,7 @@ const POKEMON_DATA = {
 
   "Rattata": {
     id: 19,
+    types: ["normal"],
     stage: "basic",
     hp: 30,
     atk: 56,
@@ -300,6 +319,7 @@ const POKEMON_DATA = {
 
   "Raticate": {
     id: 20,
+    types: ["normal"],
     stage: "final",
     hp: 55,
     atk: 81,
@@ -313,6 +333,7 @@ const POKEMON_DATA = {
 
   "Spearow": {
     id: 21,
+    types: ["normal", "flying"],
     stage: "basic",
     hp: 40,
     atk: 60,
@@ -330,6 +351,7 @@ const POKEMON_DATA = {
 
   "Fearow": {
     id: 22,
+    types: ["normal", "flying"],
     stage: "final",
     hp: 65,
     atk: 90,
@@ -343,6 +365,7 @@ const POKEMON_DATA = {
 
   "Ekans": {
     id: 23,
+    types: ["poison"],
     stage: "basic",
     hp: 35,
     atk: 60,
@@ -360,6 +383,7 @@ const POKEMON_DATA = {
 
   "Arbok": {
     id: 24,
+    types: ["poison"],
     stage: "final",
     hp: 60,
     atk: 95,
@@ -373,6 +397,7 @@ const POKEMON_DATA = {
 
   "Pikachu": {
     id: 25,
+    types: ["electric"],
     stage: "basic",
     hp: 35,
     atk: 55,
@@ -390,6 +415,7 @@ const POKEMON_DATA = {
 
   "Raichu": {
     id: 26,
+    types: ["electric"],
     stage: "final",
     hp: 60,
     atk: 90,
@@ -403,6 +429,7 @@ const POKEMON_DATA = {
 
   "Sandshrew": {
     id: 27,
+    types: ["ground"],
     stage: "basic",
     hp: 50,
     atk: 75,
@@ -420,6 +447,7 @@ const POKEMON_DATA = {
 
   "Sandslash": {
     id: 28,
+    types: ["ground"],
     stage: "final",
     hp: 75,
     atk: 100,
@@ -433,6 +461,7 @@ const POKEMON_DATA = {
 
   "Nidoran F": {
     id: 29,
+    types: ["poison"],
     stage: "basic",
     hp: 55,
     atk: 47,
@@ -450,6 +479,7 @@ const POKEMON_DATA = {
 
   "Nidorina": {
     id: 30,
+    types: ["poison"],
     stage: "mid",
     hp: 70,
     atk: 62,
@@ -467,6 +497,7 @@ const POKEMON_DATA = {
 
   "Nidoqueen": {
     id: 31,
+    types: ["poison", "ground"],
     stage: "final",
     hp: 90,
     atk: 92,
@@ -480,6 +511,7 @@ const POKEMON_DATA = {
 
   "Nidoran M": {
     id: 32,
+    types: ["poison"],
     stage: "basic",
     hp: 46,
     atk: 57,
@@ -497,6 +529,7 @@ const POKEMON_DATA = {
 
   "Nidorino": {
     id: 33,
+    types: ["poison"],
     stage: "mid",
     hp: 61,
     atk: 72,
@@ -514,6 +547,7 @@ const POKEMON_DATA = {
 
   "Nidoking": {
     id: 34,
+    types: ["poison", "ground"],
     stage: "final",
     hp: 81,
     atk: 102,
@@ -527,6 +561,7 @@ const POKEMON_DATA = {
 
   "Clefairy": {
     id: 35,
+    types: ["fairy"],
     stage: "basic",
     hp: 70,
     atk: 45,
@@ -544,6 +579,7 @@ const POKEMON_DATA = {
 
   "Clefable": {
     id: 36,
+    types: ["fairy"],
     stage: "final",
     hp: 95,
     atk: 70,
@@ -557,6 +593,7 @@ const POKEMON_DATA = {
 
   "Vulpix": {
     id: 37,
+    types: ["fire"],
     stage: "basic",
     hp: 38,
     atk: 41,
@@ -574,6 +611,7 @@ const POKEMON_DATA = {
 
   "Ninetales": {
     id: 38,
+    types: ["fire"],
     stage: "final",
     hp: 73,
     atk: 76,
@@ -587,6 +625,7 @@ const POKEMON_DATA = {
 
   "Jigglypuff": {
     id: 39,
+    types: ["normal", "fairy"],
     stage: "basic",
     hp: 115,
     atk: 45,
@@ -604,6 +643,7 @@ const POKEMON_DATA = {
 
   "Wigglytuff": {
     id: 40,
+    types: ["normal", "fairy"],
     stage: "final",
     hp: 140,
     atk: 70,
@@ -617,6 +657,7 @@ const POKEMON_DATA = {
 
   "Zubat": {
     id: 41,
+    types: ["poison", "flying"],
     stage: "basic",
     hp: 40,
     atk: 45,
@@ -634,6 +675,7 @@ const POKEMON_DATA = {
 
   "Golbat": {
     id: 42,
+    types: ["poison", "flying"],
     stage: "final",
     hp: 75,
     atk: 80,
@@ -647,6 +689,7 @@ const POKEMON_DATA = {
 
   "Oddish": {
     id: 43,
+    types: ["grass", "poison"],
     stage: "basic",
     hp: 45,
     atk: 50,
@@ -664,6 +707,7 @@ const POKEMON_DATA = {
 
   "Gloom": {
     id: 44,
+    types: ["grass", "poison"],
     stage: "mid",
     hp: 60,
     atk: 65,
@@ -681,6 +725,7 @@ const POKEMON_DATA = {
 
   "Vileplume": {
     id: 45,
+    types: ["grass", "poison"],
     stage: "final",
     hp: 75,
     atk: 80,
@@ -694,6 +739,7 @@ const POKEMON_DATA = {
 
   "Paras": {
     id: 46,
+    types: ["bug", "grass"],
     stage: "basic",
     hp: 35,
     atk: 70,
@@ -711,6 +757,7 @@ const POKEMON_DATA = {
 
   "Parasect": {
     id: 47,
+    types: ["bug", "grass"],
     stage: "final",
     hp: 60,
     atk: 95,
@@ -724,6 +771,7 @@ const POKEMON_DATA = {
 
   "Venonat": {
     id: 48,
+    types: ["bug", "poison"],
     stage: "basic",
     hp: 60,
     atk: 55,
@@ -741,6 +789,7 @@ const POKEMON_DATA = {
 
   "Venomoth": {
     id: 49,
+    types: ["bug", "poison"],
     stage: "final",
     hp: 70,
     atk: 65,
@@ -754,6 +803,7 @@ const POKEMON_DATA = {
 
   "Diglett": {
     id: 50,
+    types: ["ground"],
     stage: "basic",
     hp: 10,
     atk: 55,
@@ -771,6 +821,7 @@ const POKEMON_DATA = {
 
   "Dugtrio": {
     id: 51,
+    types: ["ground"],
     stage: "final",
     hp: 35,
     atk: 100,
@@ -784,6 +835,7 @@ const POKEMON_DATA = {
 
   "Meowth": {
     id: 52,
+    types: ["normal"],
     stage: "basic",
     hp: 40,
     atk: 45,
@@ -801,6 +853,7 @@ const POKEMON_DATA = {
 
   "Persian": {
     id: 53,
+    types: ["normal"],
     stage: "final",
     hp: 65,
     atk: 70,
@@ -814,6 +867,7 @@ const POKEMON_DATA = {
 
   "Psyduck": {
     id: 54,
+    types: ["water"],
     stage: "basic",
     hp: 50,
     atk: 52,
@@ -831,6 +885,7 @@ const POKEMON_DATA = {
 
   "Golduck": {
     id: 55,
+    types: ["water"],
     stage: "final",
     hp: 80,
     atk: 82,
@@ -844,6 +899,7 @@ const POKEMON_DATA = {
 
   "Mankey": {
     id: 56,
+    types: ["fighting"],
     stage: "basic",
     hp: 40,
     atk: 80,
@@ -861,6 +917,7 @@ const POKEMON_DATA = {
 
   "Primeape": {
     id: 57,
+    types: ["fighting"],
     stage: "final",
     hp: 65,
     atk: 105,
@@ -874,6 +931,7 @@ const POKEMON_DATA = {
 
   "Growlithe": {
     id: 58,
+    types: ["fire"],
     stage: "basic",
     hp: 55,
     atk: 70,
@@ -891,6 +949,7 @@ const POKEMON_DATA = {
 
   "Arcanine": {
     id: 59,
+    types: ["fire"],
     stage: "final",
     hp: 90,
     atk: 110,
@@ -904,6 +963,7 @@ const POKEMON_DATA = {
 
   "Poliwag": {
     id: 60,
+    types: ["water"],
     stage: "basic",
     hp: 40,
     atk: 50,
@@ -921,6 +981,7 @@ const POKEMON_DATA = {
 
   "Poliwhirl": {
     id: 61,
+    types: ["water"],
     stage: "mid",
     hp: 65,
     atk: 65,
@@ -938,6 +999,7 @@ const POKEMON_DATA = {
 
   "Poliwrath": {
     id: 62,
+    types: ["water", "fighting"],
     stage: "final",
     hp: 90,
     atk: 95,
@@ -951,6 +1013,7 @@ const POKEMON_DATA = {
 
   "Abra": {
     id: 63,
+    types: ["psychic"],
     stage: "basic",
     hp: 25,
     atk: 20,
@@ -968,6 +1031,7 @@ const POKEMON_DATA = {
 
   "Kadabra": {
     id: 64,
+    types: ["psychic"],
     stage: "mid",
     hp: 40,
     atk: 35,
@@ -985,6 +1049,7 @@ const POKEMON_DATA = {
 
   "Alakazam": {
     id: 65,
+    types: ["psychic"],
     stage: "final",
     hp: 55,
     atk: 50,
@@ -998,6 +1063,7 @@ const POKEMON_DATA = {
 
   "Machop": {
     id: 66,
+    types: ["fighting"],
     stage: "basic",
     hp: 70,
     atk: 80,
@@ -1015,6 +1081,7 @@ const POKEMON_DATA = {
 
   "Machoke": {
     id: 67,
+    types: ["fighting"],
     stage: "mid",
     hp: 80,
     atk: 100,
@@ -1032,6 +1099,7 @@ const POKEMON_DATA = {
 
   "Machamp": {
     id: 68,
+    types: ["fighting"],
     stage: "final",
     hp: 90,
     atk: 130,
@@ -1045,6 +1113,7 @@ const POKEMON_DATA = {
 
   "Bellsprout": {
     id: 69,
+    types: ["grass", "poison"],
     stage: "basic",
     hp: 50,
     atk: 75,
@@ -1062,6 +1131,7 @@ const POKEMON_DATA = {
 
   "Weepinbell": {
     id: 70,
+    types: ["grass", "poison"],
     stage: "mid",
     hp: 65,
     atk: 90,
@@ -1079,6 +1149,7 @@ const POKEMON_DATA = {
 
   "Victreebel": {
     id: 71,
+    types: ["grass", "poison"],
     stage: "final",
     hp: 80,
     atk: 105,
@@ -1092,6 +1163,7 @@ const POKEMON_DATA = {
 
   "Tentacool": {
     id: 72,
+    types: ["water", "poison"],
     stage: "basic",
     hp: 40,
     atk: 40,
@@ -1109,6 +1181,7 @@ const POKEMON_DATA = {
 
   "Tentacruel": {
     id: 73,
+    types: ["water", "poison"],
     stage: "final",
     hp: 80,
     atk: 70,
@@ -1122,6 +1195,7 @@ const POKEMON_DATA = {
 
   "Geodude": {
     id: 74,
+    types: ["rock", "ground"],
     stage: "basic",
     hp: 40,
     atk: 80,
@@ -1139,6 +1213,7 @@ const POKEMON_DATA = {
 
   "Graveler": {
     id: 75,
+    types: ["rock", "ground"],
     stage: "mid",
     hp: 55,
     atk: 95,
@@ -1156,6 +1231,7 @@ const POKEMON_DATA = {
 
   "Golem": {
     id: 76,
+    types: ["rock", "ground"],
     stage: "final",
     hp: 80,
     atk: 120,
@@ -1169,6 +1245,7 @@ const POKEMON_DATA = {
 
   "Ponyta": {
     id: 77,
+    types: ["fire"],
     stage: "basic",
     hp: 50,
     atk: 85,
@@ -1186,6 +1263,7 @@ const POKEMON_DATA = {
 
   "Rapidash": {
     id: 78,
+    types: ["fire"],
     stage: "final",
     hp: 65,
     atk: 100,
@@ -1199,6 +1277,7 @@ const POKEMON_DATA = {
 
   "Slowpoke": {
     id: 79,
+    types: ["water", "psychic"],
     stage: "basic",
     hp: 90,
     atk: 65,
@@ -1216,6 +1295,7 @@ const POKEMON_DATA = {
 
   "Slowbro": {
     id: 80,
+    types: ["water", "psychic"],
     stage: "final",
     hp: 95,
     atk: 75,
@@ -1229,6 +1309,7 @@ const POKEMON_DATA = {
 
   "Magnemite": {
     id: 81,
+    types: ["electric", "steel"],
     stage: "basic",
     hp: 25,
     atk: 35,
@@ -1246,6 +1327,7 @@ const POKEMON_DATA = {
 
   "Magneton": {
     id: 82,
+    types: ["electric", "steel"],
     stage: "final",
     hp: 50,
     atk: 60,
@@ -1259,6 +1341,7 @@ const POKEMON_DATA = {
 
   "Farfetch'd": {
     id: 83,
+    types: ["normal", "flying"],
     stage: "final",
     hp: 52,
     atk: 65,
@@ -1272,6 +1355,7 @@ const POKEMON_DATA = {
 
   "Doduo": {
     id: 84,
+    types: ["normal", "flying"],
     stage: "basic",
     hp: 35,
     atk: 85,
@@ -1289,6 +1373,7 @@ const POKEMON_DATA = {
 
   "Dodrio": {
     id: 85,
+    types: ["normal", "flying"],
     stage: "final",
     hp: 60,
     atk: 110,
@@ -1302,6 +1387,7 @@ const POKEMON_DATA = {
 
   "Seel": {
     id: 86,
+    types: ["water"],
     stage: "basic",
     hp: 65,
     atk: 45,
@@ -1319,6 +1405,7 @@ const POKEMON_DATA = {
 
   "Dewgong": {
     id: 87,
+    types: ["water", "ice"],
     stage: "final",
     hp: 90,
     atk: 70,
@@ -1332,6 +1419,7 @@ const POKEMON_DATA = {
 
   "Grimer": {
     id: 88,
+    types: ["poison"],
     stage: "basic",
     hp: 80,
     atk: 80,
@@ -1349,6 +1437,7 @@ const POKEMON_DATA = {
 
   "Muk": {
     id: 89,
+    types: ["poison"],
     stage: "final",
     hp: 105,
     atk: 105,
@@ -1362,6 +1451,7 @@ const POKEMON_DATA = {
 
   "Shellder": {
     id: 90,
+    types: ["water"],
     stage: "basic",
     hp: 30,
     atk: 65,
@@ -1379,6 +1469,7 @@ const POKEMON_DATA = {
 
   "Cloyster": {
     id: 91,
+    types: ["water", "ice"],
     stage: "final",
     hp: 50,
     atk: 95,
@@ -1392,6 +1483,7 @@ const POKEMON_DATA = {
 
   "Gastly": {
     id: 92,
+    types: ["ghost", "poison"],
     stage: "basic",
     hp: 30,
     atk: 35,
@@ -1409,6 +1501,7 @@ const POKEMON_DATA = {
 
   "Haunter": {
     id: 93,
+    types: ["ghost", "poison"],
     stage: "mid",
     hp: 45,
     atk: 50,
@@ -1426,6 +1519,7 @@ const POKEMON_DATA = {
 
   "Gengar": {
     id: 94,
+    types: ["ghost", "poison"],
     stage: "final",
     hp: 60,
     atk: 65,
@@ -1439,6 +1533,7 @@ const POKEMON_DATA = {
 
   "Onix": {
     id: 95,
+    types: ["rock", "ground"],
     stage: "final",
     hp: 35,
     atk: 45,
@@ -1452,6 +1547,7 @@ const POKEMON_DATA = {
 
   "Drowzee": {
     id: 96,
+    types: ["psychic"],
     stage: "basic",
     hp: 60,
     atk: 48,
@@ -1469,6 +1565,7 @@ const POKEMON_DATA = {
 
   "Hypno": {
     id: 97,
+    types: ["psychic"],
     stage: "final",
     hp: 85,
     atk: 73,
@@ -1482,6 +1579,7 @@ const POKEMON_DATA = {
 
   "Krabby": {
     id: 98,
+    types: ["water"],
     stage: "basic",
     hp: 30,
     atk: 105,
@@ -1499,6 +1597,7 @@ const POKEMON_DATA = {
 
   "Kingler": {
     id: 99,
+    types: ["water"],
     stage: "final",
     hp: 55,
     atk: 130,
@@ -1512,6 +1611,7 @@ const POKEMON_DATA = {
 
   "Voltorb": {
     id: 100,
+    types: ["electric"],
     stage: "basic",
     hp: 40,
     atk: 30,
@@ -1529,6 +1629,7 @@ const POKEMON_DATA = {
 
   "Electrode": {
     id: 101,
+    types: ["electric"],
     stage: "final",
     hp: 60,
     atk: 50,
@@ -1542,6 +1643,7 @@ const POKEMON_DATA = {
 
   "Exeggcute": {
     id: 102,
+    types: ["grass", "psychic"],
     stage: "basic",
     hp: 60,
     atk: 40,
@@ -1559,6 +1661,7 @@ const POKEMON_DATA = {
 
   "Exeggutor": {
     id: 103,
+    types: ["grass", "psychic"],
     stage: "final",
     hp: 95,
     atk: 95,
@@ -1572,6 +1675,7 @@ const POKEMON_DATA = {
 
   "Cubone": {
     id: 104,
+    types: ["ground"],
     stage: "basic",
     hp: 50,
     atk: 50,
@@ -1589,6 +1693,7 @@ const POKEMON_DATA = {
 
   "Marowak": {
     id: 105,
+    types: ["ground"],
     stage: "final",
     hp: 60,
     atk: 80,
@@ -1602,6 +1707,7 @@ const POKEMON_DATA = {
 
   "Hitmonlee": {
     id: 106,
+    types: ["fighting"],
     stage: "final",
     hp: 50,
     atk: 120,
@@ -1615,6 +1721,7 @@ const POKEMON_DATA = {
 
   "Hitmonchan": {
     id: 107,
+    types: ["fighting"],
     stage: "final",
     hp: 50,
     atk: 105,
@@ -1628,6 +1735,7 @@ const POKEMON_DATA = {
 
   "Lickitung": {
     id: 108,
+    types: ["normal"],
     stage: "final",
     hp: 90,
     atk: 55,
@@ -1641,6 +1749,7 @@ const POKEMON_DATA = {
 
   "Koffing": {
     id: 109,
+    types: ["poison"],
     stage: "basic",
     hp: 40,
     atk: 65,
@@ -1658,6 +1767,7 @@ const POKEMON_DATA = {
 
   "Weezing": {
     id: 110,
+    types: ["poison"],
     stage: "final",
     hp: 65,
     atk: 90,
@@ -1671,6 +1781,7 @@ const POKEMON_DATA = {
 
   "Rhyhorn": {
     id: 111,
+    types: ["ground", "rock"],
     stage: "basic",
     hp: 80,
     atk: 85,
@@ -1688,6 +1799,7 @@ const POKEMON_DATA = {
 
   "Rhydon": {
     id: 112,
+    types: ["ground", "rock"],
     stage: "final",
     hp: 105,
     atk: 130,
@@ -1701,6 +1813,7 @@ const POKEMON_DATA = {
 
   "Chansey": {
     id: 113,
+    types: ["normal"],
     stage: "final",
     hp: 250,
     atk: 5,
@@ -1714,6 +1827,7 @@ const POKEMON_DATA = {
 
   "Tangela": {
     id: 114,
+    types: ["grass"],
     stage: "final",
     hp: 65,
     atk: 55,
@@ -1727,6 +1841,7 @@ const POKEMON_DATA = {
 
   "Kangaskhan": {
     id: 115,
+    types: ["normal"],
     stage: "final",
     hp: 105,
     atk: 95,
@@ -1740,6 +1855,7 @@ const POKEMON_DATA = {
 
   "Horsea": {
     id: 116,
+    types: ["water"],
     stage: "basic",
     hp: 30,
     atk: 40,
@@ -1757,6 +1873,7 @@ const POKEMON_DATA = {
 
   "Seadra": {
     id: 117,
+    types: ["water"],
     stage: "final",
     hp: 55,
     atk: 65,
@@ -1770,6 +1887,7 @@ const POKEMON_DATA = {
 
   "Goldeen": {
     id: 118,
+    types: ["water"],
     stage: "basic",
     hp: 45,
     atk: 67,
@@ -1787,6 +1905,7 @@ const POKEMON_DATA = {
 
   "Seaking": {
     id: 119,
+    types: ["water"],
     stage: "final",
     hp: 80,
     atk: 92,
@@ -1800,6 +1919,7 @@ const POKEMON_DATA = {
 
   "Staryu": {
     id: 120,
+    types: ["water"],
     stage: "basic",
     hp: 30,
     atk: 45,
@@ -1817,6 +1937,7 @@ const POKEMON_DATA = {
 
   "Starmie": {
     id: 121,
+    types: ["water", "psychic"],
     stage: "final",
     hp: 60,
     atk: 75,
@@ -1830,6 +1951,7 @@ const POKEMON_DATA = {
 
   "Mr. Mime": {
     id: 122,
+    types: ["psychic", "fairy"],
     stage: "final",
     hp: 40,
     atk: 45,
@@ -1843,6 +1965,7 @@ const POKEMON_DATA = {
 
   "Scyther": {
     id: 123,
+    types: ["bug", "flying"],
     stage: "final",
     hp: 70,
     atk: 110,
@@ -1856,6 +1979,7 @@ const POKEMON_DATA = {
 
   "Jynx": {
     id: 124,
+    types: ["ice", "psychic"],
     stage: "final",
     hp: 65,
     atk: 50,
@@ -1869,6 +1993,7 @@ const POKEMON_DATA = {
 
   "Electabuzz": {
     id: 125,
+    types: ["electric"],
     stage: "final",
     hp: 65,
     atk: 83,
@@ -1882,6 +2007,7 @@ const POKEMON_DATA = {
 
   "Magmar": {
     id: 126,
+    types: ["fire"],
     stage: "final",
     hp: 65,
     atk: 95,
@@ -1895,6 +2021,7 @@ const POKEMON_DATA = {
 
   "Pinsir": {
     id: 127,
+    types: ["bug"],
     stage: "final",
     hp: 65,
     atk: 125,
@@ -1908,6 +2035,7 @@ const POKEMON_DATA = {
 
   "Tauros": {
     id: 128,
+    types: ["normal"],
     stage: "final",
     hp: 75,
     atk: 100,
@@ -1921,6 +2049,7 @@ const POKEMON_DATA = {
 
   "Magikarp": {
     id: 129,
+    types: ["water"],
     stage: "basic",
     hp: 20,
     atk: 10,
@@ -1938,6 +2067,7 @@ const POKEMON_DATA = {
 
   "Gyarados": {
     id: 130,
+    types: ["water", "flying"],
     stage: "final",
     hp: 95,
     atk: 125,
@@ -1951,6 +2081,7 @@ const POKEMON_DATA = {
 
   "Lapras": {
     id: 131,
+    types: ["water", "ice"],
     stage: "final",
     hp: 130,
     atk: 85,
@@ -1964,6 +2095,7 @@ const POKEMON_DATA = {
 
   "Ditto": {
     id: 132,
+    types: ["normal"],
     stage: "final",
     hp: 48,
     atk: 48,
@@ -1977,6 +2109,7 @@ const POKEMON_DATA = {
 
   "Eevee": {
     id: 133,
+    types: ["normal"],
     stage: "basic",
     hp: 55,
     atk: 55,
@@ -1997,6 +2130,7 @@ const POKEMON_DATA = {
 
   "Vaporeon": {
     id: 134,
+    types: ["water"],
     stage: "final",
     hp: 130,
     atk: 65,
@@ -2010,6 +2144,7 @@ const POKEMON_DATA = {
 
   "Jolteon": {
     id: 135,
+    types: ["electric"],
     stage: "final",
     hp: 65,
     atk: 65,
@@ -2023,6 +2158,7 @@ const POKEMON_DATA = {
 
   "Flareon": {
     id: 136,
+    types: ["fire"],
     stage: "final",
     hp: 65,
     atk: 130,
@@ -2036,6 +2172,7 @@ const POKEMON_DATA = {
 
   "Porygon": {
     id: 137,
+    types: ["normal"],
     stage: "final",
     hp: 65,
     atk: 60,
@@ -2049,6 +2186,7 @@ const POKEMON_DATA = {
 
   "Omanyte": {
     id: 138,
+    types: ["rock", "water"],
     stage: "basic",
     hp: 35,
     atk: 40,
@@ -2066,6 +2204,7 @@ const POKEMON_DATA = {
 
   "Omastar": {
     id: 139,
+    types: ["rock", "water"],
     stage: "final",
     hp: 70,
     atk: 60,
@@ -2079,6 +2218,7 @@ const POKEMON_DATA = {
 
   "Kabuto": {
     id: 140,
+    types: ["rock", "water"],
     stage: "basic",
     hp: 30,
     atk: 80,
@@ -2096,6 +2236,7 @@ const POKEMON_DATA = {
 
   "Kabutops": {
     id: 141,
+    types: ["rock", "water"],
     stage: "final",
     hp: 60,
     atk: 115,
@@ -2109,6 +2250,7 @@ const POKEMON_DATA = {
 
   "Aerodactyl": {
     id: 142,
+    types: ["rock", "flying"],
     stage: "final",
     hp: 80,
     atk: 105,
@@ -2122,6 +2264,7 @@ const POKEMON_DATA = {
 
   "Snorlax": {
     id: 143,
+    types: ["normal"],
     stage: "final",
     hp: 160,
     atk: 110,
@@ -2135,6 +2278,7 @@ const POKEMON_DATA = {
 
   "Articuno": {
     id: 144,
+    types: ["ice", "flying"],
     stage: "final",
     hp: 90,
     atk: 85,
@@ -2148,6 +2292,7 @@ const POKEMON_DATA = {
 
   "Zapdos": {
     id: 145,
+    types: ["electric", "flying"],
     stage: "final",
     hp: 90,
     atk: 90,
@@ -2161,6 +2306,7 @@ const POKEMON_DATA = {
 
   "Moltres": {
     id: 146,
+    types: ["fire", "flying"],
     stage: "final",
     hp: 90,
     atk: 100,
@@ -2174,6 +2320,7 @@ const POKEMON_DATA = {
 
   "Dratini": {
     id: 147,
+    types: ["dragon"],
     stage: "basic",
     hp: 41,
     atk: 64,
@@ -2191,6 +2338,7 @@ const POKEMON_DATA = {
 
   "Dragonair": {
     id: 148,
+    types: ["dragon"],
     stage: "mid",
     hp: 61,
     atk: 84,
@@ -2208,6 +2356,7 @@ const POKEMON_DATA = {
 
   "Dragonite": {
     id: 149,
+    types: ["dragon", "flying"],
     stage: "final",
     hp: 91,
     atk: 134,
@@ -2221,6 +2370,7 @@ const POKEMON_DATA = {
 
   "Mewtwo": {
     id: 150,
+    types: ["psychic"],
     stage: "final",
     hp: 106,
     atk: 110,
@@ -2234,6 +2384,7 @@ const POKEMON_DATA = {
 
   "Mew": {
     id: 151,
+    types: ["psychic"],
     stage: "final",
     hp: 100,
     atk: 100,
@@ -2244,6 +2395,32 @@ const POKEMON_DATA = {
     growth: "medium-slow",
     evolution: null
   }
+};
+
+
+const TYPE_DROP_TABLES = {
+    electric: [
+        { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    water: [
+        { item: "Water Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    fire: [
+        { item: "Fire Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    grass: [
+        { item: "Leaf Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    fairy: [
+        { item: "Moon Stone", basic: 20, mid: 30, final: 50 }
+    ]
+};
+
+const POKEMON_DROP_TABLES = {
+    // Exemplo de drop específico com chance fixa:
+    // "Pikachu": [
+    //     { item: "Light Ball", chance: 5 }
+    // ]
 };
 
 const WORLD_ROUTES = [
@@ -2357,6 +2534,53 @@ function getSpriteUrl(id, isShiny) {
     return isShiny ? `${base}/shiny/${id}.png` : `${base}/${id}.png`;
 }
 
+
+
+function tryDrops(pokemonName) {
+    const data = POKEMON_DATA[pokemonName];
+    if (!data) return [];
+
+    const droppedItems = [];
+
+    if (data.types) {
+        data.types.forEach(type => {
+            const dropTable = TYPE_DROP_TABLES[type];
+            if (!dropTable) return;
+
+            dropTable.forEach(drop => {
+                const chance = drop[data.stage] ?? 0;
+
+                if (Math.random() * 100 < chance) {
+                    droppedItems.push(drop.item);
+                }
+            });
+        });
+    }
+
+    const pokemonTable = POKEMON_DROP_TABLES[pokemonName];
+    if (pokemonTable) {
+        pokemonTable.forEach(drop => {
+            const chance = drop.chance ?? 0;
+
+            if (Math.random() * 100 < chance) {
+                droppedItems.push(drop.item);
+            }
+        });
+    }
+
+    return droppedItems;
+}
+
+function addItemsToInventory(items) {
+    items.forEach(itemName => {
+        if (!player.items[itemName]) {
+            player.items[itemName] = 0;
+        }
+
+        player.items[itemName]++;
+    });
+}
+
 function getPokemonEvolution(name) {
     const data = POKEMON_DATA[name];
     return data ? data.evolution : null;
@@ -2466,6 +2690,9 @@ function handleVictory() {
     const goldEarned = Math.floor(currentEnemy.maxHp / 2);
     player.gold += goldEarned;
     showGoldAnim(goldEarned);
+
+    const droppedItems = tryDrops(currentEnemy.name);
+    addItemsToInventory(droppedItems);
 
     const teamBefore = player.team.length;
 
