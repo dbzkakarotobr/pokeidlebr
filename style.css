@@ -327,13 +327,6 @@ body {
 .menu-panel {
   display: flex;
   flex-direction: column;
-  padding: 8px;
-}
-
-.menu-panel .gba-header {
-  margin: -8px -8px 8px -8px;
-  padding: 8px 6px;
-  font-size: 0.95em;
 }
 
 .menu-grid {
