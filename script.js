@@ -2953,3 +2953,15 @@ window.openBagModal = function() {
 
     modal.style.display = 'flex';
 };
+
+document.getElementById('bag-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeBagModal();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") {
+        closeBagModal();
+    }
+});
