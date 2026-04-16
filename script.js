@@ -2892,7 +2892,9 @@ window.openBagModal = function() {
         "Trade Stone": ICONS.trade
     };
 
-    const entries = Object.entries(player.items).filter(([name, count]) => count > 0);
+    const entries = Object.entries(player.items)
+        .filter(([name, count]) => count > 0)
+        .sort((a, b) => a[0].localeCompare(b[0], 'en', { sensitivity: 'base' }));
 
     if (entries.length === 0) {
         list.innerHTML = `
