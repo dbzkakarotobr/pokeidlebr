@@ -2686,8 +2686,8 @@ function spawnEnemy() {
     // 📊 4) Criar inimigo normalmente (mantém sua lógica atual)
     const data = POKEMON_DATA[name];
 
-    const level = 5 + (currentRouteIndex * 2);
-    const routeMultiplier = 3.0 * Math.pow(1.20, currentRouteIndex);
+    const level = 5 + (player.currentRouteIndex * 2);
+    const routeMultiplier = 3.0 * Math.pow(1.20, player.currentRouteIndex);
 
     const baseHp =
         (data.hp * 2 +
