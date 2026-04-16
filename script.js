@@ -2650,7 +2650,7 @@ window.sortTeam = function(key) {
 };
 
 function spawnEnemy() {
-    const route = WORLD_ROUTES[currentRouteIndex];
+    const route = WORLD_ROUTES[player.currentRouteIndex];
     const encounters = route.encounters;
 
     // 🔢 1) Soma total dos pesos
