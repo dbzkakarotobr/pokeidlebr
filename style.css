@@ -381,19 +381,21 @@ body {
 
 .bag-item {
   display: grid;
-  grid-template-columns: 40px 1fr auto;
+  grid-template-columns: 34px 1fr auto;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   padding: 8px 10px;
   border: 3px solid #000;
   background: #f8f8f8;
+  overflow: hidden;
 }
 
 .bag-item img {
-  width: 28px;
-  height: 28px;
-  image-rendering: pixelated;
+  width: 32px;
+  height: 32px;
+  margin-left: -2px;
   object-fit: contain;
+  image-rendering: pixelated;
 }
 
 .bag-item-name {
