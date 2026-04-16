@@ -746,4 +746,19 @@ body {
     object-fit: contain;
 }
 
+.bag-item.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.bag-empty-text {
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .shiny-text { color: #f08030 !important; }
