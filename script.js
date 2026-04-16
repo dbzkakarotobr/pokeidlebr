@@ -2706,7 +2706,7 @@ function spawnEnemy() {
         isShiny
     };
 
-    updateEnemyUI();
+    updateHPDisplay();
 }
 
 function handleVictory() {
