@@ -2282,7 +2282,13 @@ const ICONS = {
     shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
     pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
     pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
-    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png"
+    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
+    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
+    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
+    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
+    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
+    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
+    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png",
 };
 
 let player = {
@@ -2636,6 +2642,53 @@ window.openRouteDex = function() {
 
         list.appendChild(entry);
     });
+
+    modal.style.display = 'flex';
+};
+
+window.closeBagModal = function() {
+    document.getElementById('bag-modal').style.display = 'none';
+};
+
+window.openBagModal = function() {
+    const modal = document.getElementById('bag-modal');
+    const list = document.getElementById('bag-items-list');
+
+    list.innerHTML = "";
+
+    const itemIcons = {
+        "Thunder Stone": ICONS.thunder,
+        "Water Stone": ICONS.water,
+        "Fire Stone": ICONS.fire,
+        "Leaf Stone": ICONS.leaf,
+        "Moon Stone": ICONS.moon,
+        "Trade Stone": ICONS.trade
+    };
+
+    const entries = Object.entries(player.items).filter(([name, count]) => count > 0);
+
+    if (entries.length === 0) {
+        list.innerHTML = `
+            <div class="bag-item">
+                <img src="${ICONS.mochila}">
+                <span class="bag-item-name">Sem itens</span>
+                <span class="bag-item-count">0</span>
+            </div>
+        `;
+    } else {
+        entries.forEach(([name, count]) => {
+            const row = document.createElement('div');
+            row.className = 'bag-item';
+
+            row.innerHTML = `
+                <img src="${itemIcons[name] || ICONS.mochila}" alt="${name}">
+                <span class="bag-item-name">${name}</span>
+                <span class="bag-item-count">x${count}</span>
+            `;
+
+            list.appendChild(row);
+        });
+    }
 
     modal.style.display = 'flex';
 };
