@@ -761,4 +761,17 @@ body {
   letter-spacing: 1px;
 }
 
+.bag-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+  image-rendering: pixelated;
+}
+
 .shiny-text { color: #f08030 !important; }
