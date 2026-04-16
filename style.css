@@ -1,0 +1,650 @@
+:root {
+    --primary: #6a5acd;
+    --primary-dark: #483d8b;
+    --primary-light: #7b68ee;
+
+    --bg-main: #2f2f6d;
+    --bg-main-dark: #1f1f4d;
+
+    --panel-bg: #f8f8f8;
+    --border-color: #000;
+}
+
+/* ESTRUTURA GERAL */
+body { 
+    background: #1a1a1a; 
+    color: white; 
+    font-family: 'Courier New', monospace; 
+    margin: 0; 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#game-app { 
+    display: flex; 
+    min-height: 100vh; 
+    padding: 20px; 
+    gap: 20px; 
+    box-sizing: border-box; 
+}
+
+/* TELA INICIAL & ANIMAÇÕES */
+#starter-screen { 
+    position: absolute; 
+    inset: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background: #3c5aa6; 
+    z-index: 100; 
+}
+
+.starter-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.gba-header-starter { 
+    background: var(--primary);
+    color: white; 
+    padding: 15px 60px; 
+    border: 5px solid #000; 
+    text-transform: uppercase; 
+    margin-bottom: 60px; 
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.3); 
+    font-size: 2em; 
+}
+
+.starter-selection-area { 
+    display: flex; 
+    gap: 40px; 
+    justify-content: center; 
+}
+
+.starter-card { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 200px; 
+    transition: transform 0.2s; 
+    cursor: pointer;
+}
+
+.starter-card:hover { 
+    transform: scale(1.1); 
+}
+
+.sprite-wrapper { 
+    height: 160px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 20px; 
+}
+
+.sprite-wrapper img { 
+    width: 150px; 
+    height: 150px; 
+    image-rendering: pixelated; 
+}
+
+.enemy-hp-text {
+    margin-top: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+
+    color: #222;
+    background: #f8f8f8;
+
+    border: 3px solid #000;
+    padding: 2px 10px;
+
+    box-shadow: 3px 3px 0 #000;
+
+    text-transform: uppercase;
+}
+
+/* BOTÕES GBA */
+.gba-btn-select { 
+    background: #fff; 
+    border: 4px solid #000; 
+    width: 100%; 
+    padding: 12px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    text-transform: uppercase; 
+    box-shadow: 5px 5px 0 #000; 
+    font-family: 'Courier New', monospace; 
+    font-size: 1.1em; 
+    transition: all 0.1s; 
+}
+
+/* PAINEL DE BATALHA */
+#battle-panel { 
+    flex: 2; 
+    background: var(--bg-main);
+    border: 4px solid var(--bg-main-dark);
+    border-radius: 4px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
+    position: relative; 
+}
+
+.header-row { 
+    display: flex; 
+    justify-content: center; 
+    align-items: stretch; 
+    gap: 10px; 
+    margin-bottom: 25px; 
+    width: 100%; 
+}
+
+.nav-btn { 
+    background: var(--primary);
+    color: white; 
+    border: 3px solid #000; 
+    padding: 10px 15px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    box-shadow: 3px 3px 0 #000; 
+    font-family: 'Courier New'; 
+    font-size: 1.2em; 
+}
+
+.nav-btn:hover {
+    background: var(--primary-light);
+}
+
+.route-banner {
+    background: var(--primary);
+    border: 3px solid #000;
+    padding: 3px;
+    min-width: 260px;
+    box-shadow: 3px 3px 0 #000;
+}
+
+.banner-inner {
+    background: #f8f8f8;
+    color: #222;
+    text-align: center;
+    padding: 6px 10px;
+    border: 2px solid #000;
+    line-height: 1.2;
+}
+
+#current-map {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.route-subtext {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    color: #444;
+    letter-spacing: 0.5px;
+}
+
+.route-kill-value {
+    color: var(--primary-dark);
+    font-weight: 900;
+}
+
+#pokes-btn { 
+    background: var(--primary);
+    color: white; 
+    border: 3px solid #000; 
+    padding: 8px 15px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    box-shadow: 3px 3px 0 #000; 
+    text-transform: uppercase; 
+    font-family: 'Courier New'; 
+}
+
+#pokes-btn:hover {
+    background: var(--primary-light);
+}
+
+/* CONTAINER DO INIMIGO */
+.battle-wrapper { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+}
+
+.enemy-battle-box { 
+    background: #f8f8f8; 
+    color: #333; 
+    border: 4px solid #000; 
+    width: 384px; 
+    height: 240px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 5px 0; 
+    position: relative; 
+    box-sizing: border-box; 
+}
+
+#enemy-name { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 5px; 
+    font-weight: bold; 
+    height: 25px; 
+    margin-bottom: 5px; 
+}
+
+.enemy-sprite-container img { 
+    height: 100px; 
+    image-rendering: pixelated; 
+}
+
+.enemy-hp-container { 
+    width: 90%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 5px; 
+}
+
+.hp-bar-outer { 
+    height: 18px; 
+    background: #444; 
+    border: 3px solid #000; 
+    width: 100%; 
+    overflow: hidden; 
+}
+
+.hp-bar-inner { 
+    height: 100%; 
+    background: #78c850; 
+    transition: width 0.1s linear; 
+}
+
+/* ANIMAÇÃO DE GOLD */
+#reward-area {
+    position: absolute;
+    left: 100%;
+    margin-left: 20px;
+    width: 150px;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.gold-anim {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate3d(0, 0, 0);
+    color: #f1c40f;
+    font-weight: 900;
+    font-size: 1.8em;
+    text-shadow: 2px 2px 0 #000;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    animation: goldRise 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+@keyframes goldRise {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 12px, 0) scale(0.95);
+    }
+    15% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    75% {
+        opacity: 1;
+        transform: translate3d(0, -26px, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -52px, 0) scale(0.98);
+    }
+}
+
+/* PAINEL LATERAL (STATUS E TIME) */
+#side-panels { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    min-width: 380px; 
+}
+
+.panel { 
+    background: #fff; 
+    color: #333; 
+    border: 3px solid #000; 
+    padding: 15px; 
+}
+
+.gba-header { 
+    background: var(--primary);
+    color: white; 
+    text-align: center; 
+    margin: -15px -15px 15px -15px; 
+    padding: 10px; 
+    border-bottom: 3px solid #000; 
+    text-transform: uppercase; 
+}
+
+/* STATUS ROW */
+.status-row {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+
+.status-row img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    justify-self: center;
+    align-self: center;
+}
+
+.status-row span:first-of-type {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Valores alinhados */
+.status-row span:last-child {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Texto */
+.status-row span:nth-child(2) {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Garante consistência mesmo se algo mudar */
+#gold-icon,
+#dps-icon {
+    display: block;
+}
+
+/* GRADE DO TIME */
+.team-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+
+.team-header,
+.team-item {
+    display: grid;
+    grid-template-columns: 64px 1fr 60px 80px;
+    align-items: center;
+    gap: 6px;
+}
+
+.team-item span:nth-child(3),
+.team-item span:nth-child(4) {
+    text-align: right;
+    font-weight: bold;
+}
+
+.team-header {
+    border-bottom: 2px solid #000;
+    color: #3c5aa6;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+    padding-right: 8px; /* alinha com a barra de rolagem */
+}
+
+.team-list {
+    height: 426px;          /* 6 linhas visíveis + pequena borda inferior */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 6px;
+    box-sizing: border-box;
+}
+
+.team-item {
+    height: 68px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.team-item > img {
+    width: 75px;
+    height: 75px;
+    image-rendering: pixelated;
+    margin-top: 0;
+}
+
+.team-header span:nth-child(3), .team-item span:nth-child(3) { 
+    text-align: center; 
+}
+
+.team-header span:nth-child(4), .team-item .dps-value { 
+    text-align: right; 
+    padding-right: 15px; 
+    font-weight: bold; 
+}
+
+.team-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+/* MODAL */
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0,0,0,0.8); 
+    z-index: 1000; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content { 
+    background: #fff; 
+    color: #333; 
+    border: 5px solid #000; 
+    width: 390px; 
+    padding: 20px; 
+}
+
+.dex-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    max-height: 400px; 
+    overflow-y: auto; 
+}
+
+.dex-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 8px;
+    border: 3px solid #000;
+    background: #f8f8f8;
+}
+
+.dex-entry-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.dex-entry img {
+    width: 56px;
+    height: 56px;
+    image-rendering: pixelated;
+    flex: 0 0 auto;
+}
+
+.dex-entry-name {
+    font-weight: bold;
+    color: #222;
+    opacity: 1;
+}
+
+.dex-entry-status {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.dex-item {
+    display: grid;
+    grid-template-columns: 28px 28px 52px 1fr;
+    align-items: center;
+    column-gap: 8px;
+    padding: 4px 8px;
+    height: 56px;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.dex-item > img {
+    width: 75px;
+    height: 75px;
+    image-rendering: pixelated;
+    justify-self: center;
+    align-self: center;
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+
+.dex-name {
+    font-weight: bold;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dex-status {
+    display: contents;
+}
+
+/* Ícones do HUD (gold + dps) */
+.icon-hud {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    justify-self: center;
+    align-self: center;
+}
+
+.icon-gold {
+    width: 26px;
+    height: 26px;
+    image-rendering: pixelated;
+    vertical-align: middle;
+}
+
+.icon-inline {
+    width: 16px;
+    height: 16px;
+    image-rendering: pixelated;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.icon-dex-ball {
+    width: 52px;
+    height: 52px;
+    image-rendering: pixelated;
+    justify-self: center;
+    align-self: center;
+}
+
+.icon-dex-shiny {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    justify-self: center;
+    align-self: center;
+}
+
+.icon-dex-ball,
+.icon-dex-shiny {
+    justify-self: center;
+    align-self: center;
+}
+
+.dex-owned,
+.dex-missing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dex-owned {
+    opacity: 1;
+}
+
+.dex-missing {
+    opacity: 0.15;
+}
+
+.icon-reward {
+    width: 20px;
+    height: 20px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+#dps-icon {
+    width: 18px;
+    height: 18px;
+    image-rendering: pixelated;
+    vertical-align: middle;
+}
+
+#gold-icon {
+    width: 26px;
+    height: 26px;
+    image-rendering: pixelated;
+    vertical-align: middle;
+}
+
+#pokemon-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.shiny-text { color: #f08030 !important; }

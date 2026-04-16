@@ -1,0 +1,103 @@
+<body>
+  <div id="game-app">
+    <div id="starter-screen">
+      <div class="starter-container">
+        <div class="gba-header-starter">Escolha seu Inicial</div>
+        <div class="starter-selection-area">
+          <div class="starter-card">
+            <div class="sprite-wrapper">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+            </div>
+            <button class="gba-btn-select" onclick="chooseStarter('Bulbasaur')">BULBASAUR</button>
+          </div>
+          <div class="starter-card">
+            <div class="sprite-wrapper">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png">
+            </div>
+            <button class="gba-btn-select" onclick="chooseStarter('Charmander')">CHARMANDER</button>
+          </div>
+          <div class="starter-card">
+            <div class="sprite-wrapper">
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png">
+            </div>
+            <button class="gba-btn-select" onclick="chooseStarter('Squirtle')">SQUIRTLE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="battle-panel" style="display:none;">
+      <div class="header-row">
+        <button class="nav-btn" onclick="changeRoute(-1)">◀</button>
+        <div class="route-banner">
+          <div class="banner-inner">
+            <strong id="current-map">ROTA 01</strong>
+<span class="route-subtext">
+  DERROTADOS: <span id="route-kill-count" class="route-kill-value">0</span>
+</span>
+          </div>
+        </div>
+        <button class="nav-btn" onclick="changeRoute(1)">▶</button>
+        <button id="pokes-btn" onclick="openRouteDex()">Pokes</button>
+      </div>
+
+      <div class="battle-wrapper">
+        <div class="enemy-battle-box">
+          <div id="enemy-name"></div>
+          <div id="enemy-img-container" class="enemy-sprite-container"></div>
+          <div class="enemy-hp-container">
+            <div class="hp-bar-outer">
+              <div id="enemy-hp-bar" class="hp-bar-inner"></div>
+            </div>
+            <div class="enemy-hp-text">
+              HP: <span id="hp-current">0</span> / <span id="hp-max">0</span>
+            </div>
+          </div>
+        </div>
+        <div id="reward-area"></div>
+      </div>
+    </div>
+
+    <div id="side-panels" style="display:none;">
+      <div class="panel">
+  <div class="gba-header">MEU STATUS</div>
+
+  <div class="status-row">
+    <img id="gold-icon" class="icon-hud">
+    <span>GOLD:</span>
+    <span id="gold-count">0</span>
+  </div>
+
+  <div class="status-row">
+    <img id="dps-icon" class="icon-hud">
+    <span>DPS TOTAL:</span>
+    <span id="total-atk">0</span>
+  </div>
+  <div class="status-row">
+    <img id="pokemon-icon" class="icon-hud">
+    <span>POKEMONS:</span>
+    <span id="pokemon-count">0</span>
+  </div>
+</div>
+
+      <div class="panel team-panel">
+        <div class="gba-header">MEU TIME</div>
+        <div class="team-header">
+          <span></span>
+          <span style="cursor:pointer" onclick="sortTeam('name')">NOME</span>
+          <span style="cursor:pointer" onclick="sortTeam('lvl')">LVL</span>
+          <span style="cursor:pointer" onclick="sortTeam('dps')">DPS</span>
+        </div>
+        <div id="pokemon-list" class="team-list"></div>
+      </div>
+    </div>
+
+    <div id="route-dex-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="gba-header" id="modal-title">Pokemons:</div>
+        <div id="route-dex-list" class="dex-grid"></div>
+        <button class="gba-btn-select" style="margin-top:20px;" onclick="closeRouteDex()">FECHAR</button>
+      </div>
+    </div>
+  </div>
+</body>
