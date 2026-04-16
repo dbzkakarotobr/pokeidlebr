@@ -2627,10 +2627,15 @@ window.chooseStarter = function(name) {
     updateUI();
     spawnEnemy();
     setInterval(() => {
-        if (currentEnemy && currentEnemy.currentHp > 0) {
-            currentEnemy.currentHp -= (player.totalAtk / 10);
-            if (currentEnemy.currentHp <= 0) handleVictory();
-            updateHPDisplay();
+    if (currentEnemy && currentEnemy.currentHp > 0) {
+        currentEnemy.currentHp -= (player.totalAtk / 10);
+
+        if (currentEnemy.currentHp < 0) {
+            currentEnemy.currentHp = 0;
+        }
+
+        if (currentEnemy.currentHp <= 0) handleVictory();
+          updateHPDisplay();
         }
     }, 100);
 };
