@@ -329,6 +329,10 @@ body {
   flex-direction: column;
 }
 
+.menu-panel .menu-grid {
+  margin-top: 6px;
+}
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -354,20 +358,21 @@ body {
 }
 
 .menu-item:hover {
-  background: #ece8ff;
+  background: #eee;
+  transform: translateY(-1px);
 }
 
 .menu-icon {
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   image-rendering: pixelated;
 }
 
 .menu-label {
-  font-size: 0.68em;
-  line-height: 1;
-  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* MOCHILA */
