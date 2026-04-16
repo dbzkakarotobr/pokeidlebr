@@ -2650,37 +2650,63 @@ window.sortTeam = function(key) {
 };
 
 function spawnEnemy() {
-    const route = WORLD_ROUTES[player.currentRouteIndex];
-    let name = "";
-    let randomNum = Math.floor(Math.random() * 100);
-    let cumulative = 0;
-    for (let i = 0; i < route.encounters.length; i += 2) {
-        cumulative += route.encounters[i + 1];
-        if (randomNum < cumulative) { name = route.encounters[i]; break; }
+    const route = WORLD_ROUTES[currentRouteIndex];
+    const encounters = route.encounters;
+
+    // 🔢 1) Soma total dos pesos
+    let totalWeight = 0;
+    for (let i = 0; i < encounters.length; i += 2) {
+        totalWeight += encounters[i + 1];
     }
-    if (!name) name = route.encounters[0];
+
+    // 🎲 2) Random baseado no total
+    let randomNum = Math.random() * totalWeight;
+
+    // 🎯 3) Escolher Pokémon baseado no peso
+    let cumulative = 0;
+    let name = null;
+
+    for (let i = 0; i < encounters.length; i += 2) {
+        const pokemonName = encounters[i];
+        const weight = encounters[i + 1];
+
+        cumulative += weight;
+
+        if (randomNum < cumulative) {
+            name = pokemonName;
+            break;
+        }
+    }
+
+    // 🔒 fallback de segurança (não deveria acontecer)
+    if (!name) {
+        name = encounters[0];
+    }
+
+    // 📊 4) Criar inimigo normalmente (mantém sua lógica atual)
+    const data = POKEMON_DATA[name];
+
+    const level = 5 + (currentRouteIndex * 2);
+    const routeMultiplier = 3.0 * Math.pow(1.20, currentRouteIndex);
+
+    const baseHp =
+        (data.hp * 2 +
+         data.def +
+         data.spdef) * level;
+
+    const maxHp = Math.floor(baseHp * routeMultiplier);
+
     const isShiny = Math.random() * 100 < SHINY_CHANCE;
-    const stats = POKEMON_DATA[name];
-    document.getElementById('current-map').innerText = route.name;
-    document.getElementById('route-kill-count').innerText = fmt(route.defeated);
 
-    let enemyLvl = 5 + (player.currentRouteIndex * 2);
-let routeMultiplier = 3.0 * Math.pow(1.20, player.currentRouteIndex);
-let maxHp = Math.floor((((stats.hp * 2) * enemyLvl / 10) + 20) * routeMultiplier);
-    if (isShiny) maxHp = Math.floor(maxHp * 1.5);
+    currentEnemy = {
+        name,
+        level,
+        maxHp,
+        currentHp: maxHp,
+        isShiny
+    };
 
-    currentEnemy = { name, hp: maxHp, maxHp, lvl: enemyLvl, isShiny };
-
-const nameEl = document.getElementById('enemy-name');
-
-nameEl.innerHTML = isShiny
-  ? `<span class="shiny-text"><img src="${ICONS.shiny}" class="icon-inline"> ${name}</span>`
-  : name;
-
-nameEl.className = '';
-
-    document.getElementById('enemy-img-container').innerHTML = `<img src="${getSpriteUrl(stats.id, isShiny)}">`;
-    updateHPDisplay();
+    updateEnemyUI();
 }
 
 function handleVictory() {
