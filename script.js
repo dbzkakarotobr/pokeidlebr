@@ -2932,10 +2932,8 @@ window.openBagModal = function() {
 
     if (entries.length === 0) {
         list.innerHTML = `
-            <div class="bag-item">
-                <img src="${ICONS.mochila}">
-                <span class="bag-item-name">Sem itens</span>
-                <span class="bag-item-count">0</span>
+            <div class="bag-item empty">
+              <span class="bag-empty-text">Sem itens</span>
             </div>
         `;
     } else {
