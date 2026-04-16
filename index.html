@@ -3,6 +3,7 @@
     <div id="starter-screen">
       <div class="starter-container">
         <div class="gba-header-starter">Escolha seu Inicial</div>
+
         <div class="starter-selection-area">
           <div class="starter-card">
             <div class="sprite-wrapper">
@@ -10,12 +11,14 @@
             </div>
             <button class="gba-btn-select" onclick="chooseStarter('Bulbasaur')">BULBASAUR</button>
           </div>
+
           <div class="starter-card">
             <div class="sprite-wrapper">
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png">
             </div>
             <button class="gba-btn-select" onclick="chooseStarter('Charmander')">CHARMANDER</button>
           </div>
+
           <div class="starter-card">
             <div class="sprite-wrapper">
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png">
@@ -29,14 +32,16 @@
     <div id="battle-panel" style="display:none;">
       <div class="header-row">
         <button class="nav-btn" onclick="changeRoute(-1)">◀</button>
+
         <div class="route-banner">
           <div class="banner-inner">
             <strong id="current-map">ROTA 01</strong>
-              <span class="route-subtext">
-                DERROTADOS: <span id="route-kill-count" class="route-kill-value">0</span>
-              </span>
+            <span class="route-subtext">
+              DERROTADOS: <span id="route-kill-count" class="route-kill-value">0</span>
+            </span>
           </div>
         </div>
+
         <button class="nav-btn" onclick="changeRoute(1)">▶</button>
         <button id="pokes-btn" onclick="openRouteDex()">Pokes</button>
       </div>
@@ -45,45 +50,53 @@
         <div class="enemy-battle-box">
           <div id="enemy-name"></div>
           <div id="enemy-img-container" class="enemy-sprite-container"></div>
+
           <div class="enemy-hp-container">
             <div class="hp-bar-outer">
               <div id="enemy-hp-bar" class="hp-bar-inner"></div>
             </div>
+
             <div class="enemy-hp-text">
               HP: <span id="hp-current">0</span> / <span id="hp-max">0</span>
             </div>
           </div>
         </div>
+
         <div id="reward-area"></div>
       </div>
     </div>
 
     <div id="side-panels" style="display:none;">
-      <div class="panel">
-        <div class="panel menu-panel">
-          <div class="gba-header">MENU</div>
-        
-          <div class="menu-grid">
-            <button class="menu-item" onclick="openBagModal()">
-              <img src="https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png" class="menu-icon" alt="Mochila">
-              <span class="menu-label">Mochila</span>
-            </button>
-          </div>
+      <div class="panel menu-panel">
+        <div class="gba-header">MENU</div>
+
+        <div class="menu-grid">
+          <button class="menu-item" onclick="openBagModal()">
+            <img
+              src="https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png"
+              class="menu-icon"
+              alt="Mochila"
+            >
+            <span class="menu-label">Mochila</span>
+          </button>
         </div>
-        
+      </div>
+
+      <div class="panel">
         <div class="gba-header">MEU STATUS</div>
-      
+
         <div class="status-row">
           <img id="gold-icon" class="icon-hud">
           <span>GOLD:</span>
           <span id="gold-count">0</span>
         </div>
-      
+
         <div class="status-row">
           <img id="dps-icon" class="icon-hud">
           <span>DPS TOTAL:</span>
           <span id="total-atk">0</span>
         </div>
+
         <div class="status-row">
           <img id="pokemon-icon" class="icon-hud">
           <span>POKEMONS:</span>
@@ -93,12 +106,14 @@
 
       <div class="panel team-panel">
         <div class="gba-header">MEU TIME</div>
+
         <div class="team-header">
           <span></span>
           <span style="cursor:pointer" onclick="sortTeam('name')">NOME</span>
           <span style="cursor:pointer" onclick="sortTeam('lvl')">LVL</span>
           <span style="cursor:pointer" onclick="sortTeam('dps')">DPS</span>
         </div>
+
         <div id="pokemon-list" class="team-list"></div>
       </div>
     </div>
@@ -114,9 +129,7 @@
     <div id="bag-modal" class="modal-overlay">
       <div class="modal-content">
         <div class="gba-header">MOCHILA</div>
-    
         <div id="bag-items-list" class="bag-grid"></div>
-    
         <button class="gba-btn-select" style="margin-top:20px;" onclick="closeBagModal()">FECHAR</button>
       </div>
     </div>
