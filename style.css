@@ -436,11 +436,11 @@ body {
   text-align: center;
   font-family: 'Courier New', monospace;
   font-weight: 900;
-  font-size: 0.95em;
+  font-size: 1.15em;        /* ⬅️ AUMENTO AQUI */
+  letter-spacing: 1.6px;
+  line-height: 1;           /* mantém compacto */
+  padding: 8px 0;           /* ⬅️ diminui pra compensar */  
   text-transform: uppercase;
-  letter-spacing: 1.4px;
-  line-height: 1;
-  padding: 10px 0;
   margin: -15px -15px 15px -15px;
   border-bottom: 3px solid #000;
   text-shadow:
