@@ -3122,8 +3122,8 @@ function showItemLog(itemName) {
     el.className = 'reward-log-item';
 
     el.innerHTML = `
-        <span>${itemName}</span>
         <img src="${itemIcons[itemName] || ICONS.mochila}" class="icon-reward">
+        <span>${itemName}</span>
     `;
 
     log.appendChild(el);
