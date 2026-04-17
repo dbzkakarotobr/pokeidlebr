@@ -2460,12 +2460,13 @@ const ICONS = {
     pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
     pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
     mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
+    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
     thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
     water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
     fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
     leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
     moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
-    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png",
+    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
 };
 
 let player = {
@@ -2965,3 +2966,7 @@ document.addEventListener('keydown', function(e) {
         closeBagModal();
     }
 });
+
+function openPokedex() {
+  console.log("Abrir Pokedex (em desenvolvimento)");
+}
