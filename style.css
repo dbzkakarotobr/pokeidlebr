@@ -955,16 +955,14 @@ body {
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 10px;
+  justify-content: center;  
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 1px 1px 0 #000;
   z-index: 2;
   padding: 0 4px;
   box-sizing: border-box;
-  text-align: center;
-  letter-spacing: 1px;
+  text-align: center;  
 }
 
 .dex-name-bar:has(:contains("???")) {
