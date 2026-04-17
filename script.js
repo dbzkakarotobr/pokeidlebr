@@ -1,68 +1,3 @@
-const SHINY_CHANCE = 50;
-const EXP_MULTIPLIER = 50;
-
-const ICONS = {
-    dps: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-dps.png",
-    gold: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-gold.png",
-    shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
-    pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
-    pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
-    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
-    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
-    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
-    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
-    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
-    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
-    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
-    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
-};
-
-const TYPE_DROP_TABLES = {
-    electric: [
-        { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    water: [
-        { item: "Water Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    fire: [
-        { item: "Fire Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    grass: [
-        { item: "Leaf Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    fairy: [
-        { item: "Moon Stone", basic: 20, mid: 30, final: 50 }
-    ]
-};
-
-const POKEMON_DROP_TABLES = {
-    // Exemplo de drop específico com chance fixa:
-    // "Pikachu": [
-    //     { item: "Light Ball", chance: 5 }
-    // ]
-};
-
-const TYPE_COLORS = {
-    normal: "#A8A878",
-    fire: "#F08030",
-    water: "#6890F0",
-    electric: "#F8D030",
-    grass: "#78C850",
-    ice: "#98D8D8",
-    fighting: "#C03028",
-    poison: "#A040A0",
-    ground: "#E0C068",
-    flying: "#A890F0",
-    psychic: "#F85888",
-    bug: "#A8B820",
-    rock: "#B8A038",
-    ghost: "#705898",
-    dragon: "#7038F8",
-    dark: "#705848",
-    steel: "#B8B8D0",
-    fairy: "#EE99AC"
-};
-
 const POKEMON_DATA = {
   "Bulbasaur": {
     id: 1,
@@ -2460,6 +2395,71 @@ const POKEMON_DATA = {
     growth: "medium-slow",
     evolution: null
   }
+};
+
+const SHINY_CHANCE = 50;
+const EXP_MULTIPLIER = 50;
+
+const ICONS = {
+    dps: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-dps.png",
+    gold: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-gold.png",
+    shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
+    pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
+    pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
+    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
+    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
+    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
+    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
+    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
+    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
+    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
+    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
+};
+
+const TYPE_DROP_TABLES = {
+    electric: [
+        { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    water: [
+        { item: "Water Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    fire: [
+        { item: "Fire Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    grass: [
+        { item: "Leaf Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    fairy: [
+        { item: "Moon Stone", basic: 20, mid: 30, final: 50 }
+    ]
+};
+
+const POKEMON_DROP_TABLES = {
+    // Exemplo de drop específico com chance fixa:
+    // "Pikachu": [
+    //     { item: "Light Ball", chance: 5 }
+    // ]
+};
+
+const TYPE_COLORS = {
+    normal: "#A8A878",
+    fire: "#F08030",
+    water: "#6890F0",
+    electric: "#F8D030",
+    grass: "#78C850",
+    ice: "#98D8D8",
+    fighting: "#C03028",
+    poison: "#A040A0",
+    ground: "#E0C068",
+    flying: "#A890F0",
+    psychic: "#F85888",
+    bug: "#A8B820",
+    rock: "#B8A038",
+    ghost: "#705898",
+    dragon: "#7038F8",
+    dark: "#705848",
+    steel: "#B8B8D0",
+    fairy: "#EE99AC"
 };
 
 const WORLD_ROUTES = [
