@@ -3076,9 +3076,9 @@ function createPokedexCard(name, data) {
 
             <div class="pokedex-card-content">
                 <div class="dex-top-bar"></div>
-                <img src="${ICONS.shiny}" class="dex-corner-icon dex-corner-left ${shinyIconClass}">
+                <img src="${ICONS.shiny}" class="dex-corner-icon dex-shiny-icon dex-corner-left ${shinyIconClass}">
                 <div class="dex-number">#${String(pokemon.id).padStart(3, "0")}</div>
-                <img src="${ICONS.pokeball}" class="dex-corner-icon dex-corner-right ${ballIconClass}">
+                <img src="${ICONS.pokeball}" class="dex-corner-icon dex-ball-icon dex-corner-right ${ballIconClass}">
 
                 <div class="dex-sprite-area">
                     <img src="${spriteUrl}" class="${showShadow ? "dex-sprite-shadow" : ""}">
