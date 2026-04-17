@@ -357,39 +357,59 @@ body {
    REWARD LOG
    log dos drops
 ========================= */
+.reward-log-panel {
+  width: 384px;              /* mesma largura da enemy-battle-box */
+  min-height: 54px;          /* painel fixo */
+  margin-top: 8px;
+  background: #f8f8f8;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  padding: 6px 8px;
+  box-sizing: border-box;
+}
+
 .reward-log {
-  margin-top: 6px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 4px;
 }
 
 .reward-log-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  background: #eee;
-  border: 2px solid #000;
-  box-shadow: 2px 2px 0 #000;
-  padding: 2px 6px;
   font-size: 12px;
   font-weight: bold;
-  animation: fadeOut 2s forwards;
+  color: #222;
+  text-transform: uppercase;
+  line-height: 1;
+  animation: rewardLogFade 2.2s forwards;
 }
 
 .reward-log-item img {
   width: 16px;
   height: 16px;
   image-rendering: pixelated;
+  flex-shrink: 0;
 }
 
-/* animação */
-@keyframes fadeOut {
-  0%   { opacity: 0; transform: translateY(4px); }
-  10%  { opacity: 1; transform: translateY(0); }
-  80%  { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-4px); }
+@keyframes rewardLogFade {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }
 
 /* =========================
