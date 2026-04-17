@@ -359,7 +359,7 @@ body {
 ========================= */
 .reward-log-panel {
   width: 384px;              /* mesma largura da enemy-battle-box */
-  height: 72px;              /* painel fixo */
+  height: 72px;          /* painel fixo */
   margin-top: 8px;
   background: #f8f8f8;
   border: 3px solid #000;
