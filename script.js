@@ -1,3 +1,50 @@
+const SHINY_CHANCE = 50;
+const EXP_MULTIPLIER = 50;
+
+const ICONS = {
+    dps: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-dps.png",
+    gold: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-gold.png",
+    shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
+    pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
+    pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
+    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
+    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
+    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
+    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
+    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
+    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
+    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
+    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
+};
+
+const WORLD_ROUTES = [
+    { name: "ROTA 01", encounters: ["Pidgey", 50, "Rattata", 50, "Pikachu", 50, "Psyduck", 50, "Oddish", 50, "Tentacool", 50, "Ponyta", 50], defeated: 0 },
+    { name: "ROTA 22", encounters: ["Rattata", 45, "Spearow", 45, "Mankey", 5], defeated: 0 },
+    { name: "ROTA 02", encounters: ["Pidgey", 30, "Rattata", 40, "Caterpie", 15, "Weedle", 15], defeated: 0 },
+    { name: "ROTA 03", encounters: ["Pidgey", 30, "Spearow", 40, "Rattata", 20, "Mankey", 10], defeated: 0 },
+    { name: "ROTA 04", encounters: ["Rattata", 30, "Spearow", 30, "Ekans", 15, "Sandshrew", 15, "Mankey", 10], defeated: 0 },
+    { name: "ROTA 24", encounters: ["Caterpie", 10, "Metapod", 10, "Weedle", 10, "Kakuna", 10, "Pidgey", 20, "Oddish", 15, "Bellsprout", 15, "Abra", 10], defeated: 0 },
+    { name: "ROTA 25", encounters: ["Caterpie", 10, "Metapod", 10, "Weedle", 10, "Kakuna", 10, "Pidgey", 20, "Oddish", 15, "Bellsprout", 15, "Abra", 10], defeated: 0 },
+    { name: "ROTA 05", encounters: ["Pidgey", 40, "Pidgeotto", 10, "Meowth", 30, "Oddish", 10, "Bellsprout", 10], defeated: 0 },
+    { name: "ROTA 06", encounters: ["Pidgey", 30, "Meowth", 30, "Oddish", 15, "Bellsprout", 15, "Mankey", 10], defeated: 0 },
+    { name: "ROTA 11", encounters: ["Spearow", 30, "Ekans", 20, "Sandshrew", 20, "Drowzee", 30], defeated: 0 },
+    { name: "ROTA 09", encounters: ["Rattata", 10, "Raticate", 10, "Spearow", 10, "Fearow", 10, "Ekans", 10, "Sandshrew", 10, "Nidoran F", 10, "Nidorina", 10, "Nidoran M", 10, "Nidorino", 10], defeated: 0 },
+    { name: "ROTA 10", encounters: ["Rattata", 10, "Raticate", 10, "Spearow", 10, "Ekans", 10, "Sandshrew", 10, "Nidoran F", 10, "Nidoran M", 10, "Machop", 10, "Magnemite", 10, "Voltorb", 10], defeated: 0 },
+    { name: "ROTA 08", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Rattata", 10, "Meowth", 10, "Ekans", 10, "Sandshrew", 10, "Vulpix", 10, "Growlithe", 10, "Abra", 10, "Kadabra", 10], defeated: 0 },
+    { name: "ROTA 07", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Rattata", 10, "Meowth", 10, "Oddish", 10, "Bellsprout", 10, "Vulpix", 10, "Growlithe", 10, "Abra", 10, "Kadabra", 10], defeated: 0 },
+    { name: "ROTA 16", encounters: ["Rattata", 10, "Raticate", 10, "Spearow", 10, "Fearow", 10, "Doduo", 60], defeated: 0 },
+    { name: "ROTA 17", encounters: ["Spearow", 10, "Fearow", 20, "Ponyta", 20, "Doduo", 30, "Dodrio", 20], defeated: 0 },
+    { name: "ROTA 18", encounters: ["Spearow", 30, "Fearow", 30, "Doduo", 40], defeated: 0 },
+    { name: "ROTA 12", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Farfetch'd", 20], defeated: 0 },
+    { name: "ROTA 13", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Ditto", 20], defeated: 0 },
+    { name: "ROTA 14", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Ditto", 20], defeated: 0 },
+    { name: "ROTA 15", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Ditto", 20], defeated: 0 },
+    { name: "ROTA 19", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
+    { name: "ROTA 20", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
+    { name: "ROTA 21", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
+    { name: "ROTA 23", encounters: ["Spearow", 10, "Fearow", 10, "Ekans", 10, "Arbok", 10, "Sandshrew", 10, "Sandslash", 10, "Nidorina", 10, "Nidorino", 10, "Mankey", 10, "Primeape", 10], defeated: 0 }
+];
+
 const POKEMON_DATA = {
   "Bulbasaur": {
     id: 1,
@@ -2397,25 +2444,6 @@ const POKEMON_DATA = {
   }
 };
 
-const SHINY_CHANCE = 50;
-const EXP_MULTIPLIER = 50;
-
-const ICONS = {
-    dps: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-dps.png",
-    gold: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-gold.png",
-    shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
-    pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
-    pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
-    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
-    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
-    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
-    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
-    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
-    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
-    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
-    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
-};
-
 const TYPE_DROP_TABLES = {
     electric: [
         { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
@@ -2461,34 +2489,6 @@ const TYPE_COLORS = {
     steel: "#B8B8D0",
     fairy: "#EE99AC"
 };
-
-const WORLD_ROUTES = [
-    { name: "ROTA 01", encounters: ["Pidgey", 50, "Rattata", 50, "Pikachu", 50, "Psyduck", 50, "Oddish", 50, "Tentacool", 50, "Ponyta", 50], defeated: 0 },
-    { name: "ROTA 22", encounters: ["Rattata", 45, "Spearow", 45, "Mankey", 5], defeated: 0 },
-    { name: "ROTA 02", encounters: ["Pidgey", 30, "Rattata", 40, "Caterpie", 15, "Weedle", 15], defeated: 0 },
-    { name: "ROTA 03", encounters: ["Pidgey", 30, "Spearow", 40, "Rattata", 20, "Mankey", 10], defeated: 0 },
-    { name: "ROTA 04", encounters: ["Rattata", 30, "Spearow", 30, "Ekans", 15, "Sandshrew", 15, "Mankey", 10], defeated: 0 },
-    { name: "ROTA 24", encounters: ["Caterpie", 10, "Metapod", 10, "Weedle", 10, "Kakuna", 10, "Pidgey", 20, "Oddish", 15, "Bellsprout", 15, "Abra", 10], defeated: 0 },
-    { name: "ROTA 25", encounters: ["Caterpie", 10, "Metapod", 10, "Weedle", 10, "Kakuna", 10, "Pidgey", 20, "Oddish", 15, "Bellsprout", 15, "Abra", 10], defeated: 0 },
-    { name: "ROTA 05", encounters: ["Pidgey", 40, "Pidgeotto", 10, "Meowth", 30, "Oddish", 10, "Bellsprout", 10], defeated: 0 },
-    { name: "ROTA 06", encounters: ["Pidgey", 30, "Meowth", 30, "Oddish", 15, "Bellsprout", 15, "Mankey", 10], defeated: 0 },
-    { name: "ROTA 11", encounters: ["Spearow", 30, "Ekans", 20, "Sandshrew", 20, "Drowzee", 30], defeated: 0 },
-    { name: "ROTA 09", encounters: ["Rattata", 10, "Raticate", 10, "Spearow", 10, "Fearow", 10, "Ekans", 10, "Sandshrew", 10, "Nidoran F", 10, "Nidorina", 10, "Nidoran M", 10, "Nidorino", 10], defeated: 0 },
-    { name: "ROTA 10", encounters: ["Rattata", 10, "Raticate", 10, "Spearow", 10, "Ekans", 10, "Sandshrew", 10, "Nidoran F", 10, "Nidoran M", 10, "Machop", 10, "Magnemite", 10, "Voltorb", 10], defeated: 0 },
-    { name: "ROTA 08", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Rattata", 10, "Meowth", 10, "Ekans", 10, "Sandshrew", 10, "Vulpix", 10, "Growlithe", 10, "Abra", 10, "Kadabra", 10], defeated: 0 },
-    { name: "ROTA 07", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Rattata", 10, "Meowth", 10, "Oddish", 10, "Bellsprout", 10, "Vulpix", 10, "Growlithe", 10, "Abra", 10, "Kadabra", 10], defeated: 0 },
-    { name: "ROTA 16", encounters: ["Rattata", 10, "Raticate", 10, "Spearow", 10, "Fearow", 10, "Doduo", 60], defeated: 0 },
-    { name: "ROTA 17", encounters: ["Spearow", 10, "Fearow", 20, "Ponyta", 20, "Doduo", 30, "Dodrio", 20], defeated: 0 },
-    { name: "ROTA 18", encounters: ["Spearow", 30, "Fearow", 30, "Doduo", 40], defeated: 0 },
-    { name: "ROTA 12", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Farfetch'd", 20], defeated: 0 },
-    { name: "ROTA 13", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Ditto", 20], defeated: 0 },
-    { name: "ROTA 14", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Ditto", 20], defeated: 0 },
-    { name: "ROTA 15", encounters: ["Pidgey", 10, "Pidgeotto", 10, "Oddish", 10, "Gloom", 10, "Bellsprout", 10, "Weepinbell", 10, "Venonat", 10, "Venomoth", 10, "Ditto", 20], defeated: 0 },
-    { name: "ROTA 19", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
-    { name: "ROTA 20", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
-    { name: "ROTA 21", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
-    { name: "ROTA 23", encounters: ["Spearow", 10, "Fearow", 10, "Ekans", 10, "Arbok", 10, "Sandshrew", 10, "Sandslash", 10, "Nidorina", 10, "Nidorino", 10, "Mankey", 10, "Primeape", 10], defeated: 0 }
-];
 
 const INITIAL_POKEDEX = Object.fromEntries(
     Object.keys(POKEMON_DATA).map(name => [
