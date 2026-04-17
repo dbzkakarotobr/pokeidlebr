@@ -1,3 +1,91 @@
+const SHINY_CHANCE = 50;
+const EXP_MULTIPLIER = 50;
+
+const ICONS = {
+    dps: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-dps.png",
+    gold: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-gold.png",
+    shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
+    pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
+    pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
+    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
+    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
+    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
+    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
+    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
+    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
+    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
+    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
+};
+
+const INITIAL_POKEDEX = Object.fromEntries(
+    Object.keys(POKEMON_DATA).map(name => [
+        name,
+        { seen: false, caught: false, shiny: false }
+    ])
+);
+
+let player = {
+    gold: 0,
+    team: [],
+    totalAtk: 0,
+    currentRouteIndex: 0,
+    items: {
+        "Thunder Stone": 0,
+        "Water Stone": 0,
+        "Fire Stone": 0,
+        "Leaf Stone": 0,
+        "Moon Stone": 0,
+        "Trade Stone": 0
+    },
+    pokedex: structuredClone(INITIAL_POKEDEX)
+};
+
+const TYPE_DROP_TABLES = {
+    electric: [
+        { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    water: [
+        { item: "Water Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    fire: [
+        { item: "Fire Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    grass: [
+        { item: "Leaf Stone", basic: 20, mid: 30, final: 50 }
+    ],
+    fairy: [
+        { item: "Moon Stone", basic: 20, mid: 30, final: 50 }
+    ]
+};
+
+const POKEMON_DROP_TABLES = {
+    // Exemplo de drop específico com chance fixa:
+    // "Pikachu": [
+    //     { item: "Light Ball", chance: 5 }
+    // ]
+};
+
+const TYPE_COLORS = {
+    normal: "#A8A878",
+    fire: "#F08030",
+    water: "#6890F0",
+    electric: "#F8D030",
+    grass: "#78C850",
+    ice: "#98D8D8",
+    fighting: "#C03028",
+    poison: "#A040A0",
+    ground: "#E0C068",
+    flying: "#A890F0",
+    psychic: "#F85888",
+    bug: "#A8B820",
+    rock: "#B8A038",
+    ghost: "#705898",
+    dragon: "#7038F8",
+    dark: "#705848",
+    steel: "#B8B8D0",
+    fairy: "#EE99AC"
+};
+
 const POKEMON_DATA = {
   "Bulbasaur": {
     id: 1,
@@ -2397,53 +2485,6 @@ const POKEMON_DATA = {
   }
 };
 
-
-const TYPE_DROP_TABLES = {
-    electric: [
-        { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    water: [
-        { item: "Water Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    fire: [
-        { item: "Fire Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    grass: [
-        { item: "Leaf Stone", basic: 20, mid: 30, final: 50 }
-    ],
-    fairy: [
-        { item: "Moon Stone", basic: 20, mid: 30, final: 50 }
-    ]
-};
-
-const POKEMON_DROP_TABLES = {
-    // Exemplo de drop específico com chance fixa:
-    // "Pikachu": [
-    //     { item: "Light Ball", chance: 5 }
-    // ]
-};
-
-const TYPE_COLORS = {
-    normal: "#A8A878",
-    fire: "#F08030",
-    water: "#6890F0",
-    electric: "#F8D030",
-    grass: "#78C850",
-    ice: "#98D8D8",
-    fighting: "#C03028",
-    poison: "#A040A0",
-    ground: "#E0C068",
-    flying: "#A890F0",
-    psychic: "#F85888",
-    bug: "#A8B820",
-    rock: "#B8A038",
-    ghost: "#705898",
-    dragon: "#7038F8",
-    dark: "#705848",
-    steel: "#B8B8D0",
-    fairy: "#EE99AC"
-};
-
 const WORLD_ROUTES = [
     { name: "ROTA 01", encounters: ["Pidgey", 50, "Rattata", 50, "Pikachu", 50, "Psyduck", 50, "Oddish", 50, "Tentacool", 50], defeated: 0 },
     { name: "ROTA 22", encounters: ["Rattata", 45, "Spearow", 45, "Mankey", 5], defeated: 0 },
@@ -2471,47 +2512,6 @@ const WORLD_ROUTES = [
     { name: "ROTA 21", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
     { name: "ROTA 23", encounters: ["Spearow", 10, "Fearow", 10, "Ekans", 10, "Arbok", 10, "Sandshrew", 10, "Sandslash", 10, "Nidorina", 10, "Nidorino", 10, "Mankey", 10, "Primeape", 10], defeated: 0 }
 ];
-
-const SHINY_CHANCE = 50;
-const EXP_MULTIPLIER = 20;
-const ICONS = {
-    dps: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-dps.png",
-    gold: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-gold.png",
-    shiny: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-shiny.png",
-    pokeball: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
-    pokes: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokes.png",
-    mochila: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-mochila.png",
-    pokedex: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png",
-    thunder: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
-    water: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
-    fire: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
-    leaf: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
-    moon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
-    trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
-};
-
-const INITIAL_POKEDEX = Object.fromEntries(
-    Object.keys(POKEMON_DATA).map(name => [
-        name,
-        { seen: false, caught: false, shiny: false }
-    ])
-);
-
-let player = {
-    gold: 0,
-    team: [],
-    totalAtk: 0,
-    currentRouteIndex: 0,
-    items: {
-        "Thunder Stone": 0,
-        "Water Stone": 0,
-        "Fire Stone": 0,
-        "Leaf Stone": 0,
-        "Moon Stone": 0,
-        "Trade Stone": 0
-    },
-    pokedex: structuredClone(INITIAL_POKEDEX)
-};
 
 let currentEnemy = null;
 let currentSort = { key: 'lvl', order: 'desc' };
