@@ -2921,20 +2921,20 @@ window.openRouteDex = function() {
         const hasShiny = player.team.some(p => p.name === pkName && p.isShiny);
 
         const entry = document.createElement('div');
-        entry.className = 'route-dex-item';
+        entry.className = 'dex-item';
 
         entry.innerHTML = `
-    <span class="${hasShiny ? 'route-dex-owned' : 'route-dex-missing'}">
-        <img src="${ICONS.shiny}" class="icon-route-dex-shiny">
+    <span class="${hasShiny ? 'dex-owned' : 'dex-missing'}">
+        <img src="${ICONS.shiny}" class="icon-dex-shiny">
     </span>
 
-    <span class="${hasNormal ? 'route-dex-owned' : 'route-dex-missing'}">
-        <img src="${ICONS.pokeball}" class="icon-route-dex-ball">
+    <span class="${hasNormal ? 'dex-owned' : 'dex-missing'}">
+        <img src="${ICONS.pokeball}" class="icon-dex-ball">
     </span>
 
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${stats.id}.png">
 
-    <span class="route-dex-name">${pkName}</span>
+    <span class="dex-name">${pkName}</span>
 `;
 
         list.appendChild(entry);
@@ -3002,6 +3002,10 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+function openPokedex() {
+  console.log("Abrir Pokedex (em desenvolvimento)");
+}
+
 function registerEncounter(name, isShiny = false, caught = false) {
     if (!player.pokedex[name]) {
         console.warn("Pokemon não encontrado na pokedex:", name);
@@ -3056,8 +3060,8 @@ function createPokedexCard(name, data) {
     const showName = seen || caught || shiny;
     const displayName = showName ? name.toUpperCase() : "???"; 
 
-    const shinyIconClass = shiny ? "" : "pokedex-icon-dim";
-    const ballIconClass = caught ? "" : "pokedex-icon-dim";
+    const shinyIconClass = shiny ? "" : "dex-icon-dim";
+    const ballIconClass = caught ? "" : "dex-icon-dim";
 
     const typeBgHtml = types.length === 1
         ? `<div class="pokedex-type-single" style="background:${TYPE_COLORS[types[0]] || "#888"};"></div>`
@@ -3071,16 +3075,16 @@ function createPokedexCard(name, data) {
             ${typeBgHtml}
 
             <div class="pokedex-card-content">
-                <div class="pokedex-top-bar"></div>
-                <img src="${ICONS.shiny}" class="pokedex-corner-icon pokedex-shiny-icon pokedex-corner-left ${shinyIconClass}">
-                <div class="pokedex-number">#${String(pokemon.id).padStart(3, "0")}</div>
-                <img src="${ICONS.pokeball}" class="pokedex-corner-icon pokedex-ball-icon pokedex-corner-right ${ballIconClass}">
+                <div class="dex-top-bar"></div>
+                <img src="${ICONS.shiny}" class="dex-corner-icon dex-shiny-icon dex-corner-left ${shinyIconClass}">
+                <div class="dex-number">#${String(pokemon.id).padStart(3, "0")}</div>
+                <img src="${ICONS.pokeball}" class="dex-corner-icon dex-ball-icon dex-corner-right ${ballIconClass}">
 
-                <div class="pokedex-sprite-area">
-                    <img src="${spriteUrl}" class="${showShadow ? "pokedex-sprite-shadow" : ""}">
+                <div class="dex-sprite-area">
+                    <img src="${spriteUrl}" class="${showShadow ? "dex-sprite-shadow" : ""}">
                 </div>
 
-                <div class="pokedex-name-bar">
+                <div class="dex-name-bar">
                     ${displayName}
                 </div>
             </div>
