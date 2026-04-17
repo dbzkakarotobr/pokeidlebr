@@ -969,7 +969,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 1px 1px 0 #000;
-  padding-bottom: 6px;       /* 👈 controla a distância da borda */
+  padding-bottom: 3px;       /* 👈 controla a distância da borda */
   padding-left: 4px;
   padding-right: 4px;
   box-sizing: border-box;
