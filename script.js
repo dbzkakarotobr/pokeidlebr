@@ -2901,7 +2901,7 @@ window.openRoutedex = function() {
     const list = document.getElementById('routedex-list');
     const route = WORLD_ROUTES[player.currentRouteIndex];
 
-    document.getElementById('modal-title').innerText = `Pokemons: ${route.name}`;
+    document.getElementById('routedex-title').innerText = `Pokemons: ${route.name}`;
 
     list.innerHTML = "";
 
@@ -2934,7 +2934,7 @@ window.openRoutedex = function() {
 
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${stats.id}.png">
 
-    <span class="routedex-name">${pkName}</span>
+    <span class="routedex-item-name">${pkName}</span>
 `;
 
         list.appendChild(entry);
@@ -3023,12 +3023,12 @@ function registerEncounter(name, isShiny = false, caught = false) {
     }
 }
 
-window.openPokedexModal = function() {
+window.openPokedex = function() {
     renderPokedex();
     document.getElementById('pokedex-modal').style.display = 'flex';
 };
 
-window.closePokedexModal = function() {
+window.closePokedex = function() {
     document.getElementById('pokedex-modal').style.display = 'none';
 };
 
@@ -3060,8 +3060,8 @@ function createPokedexCard(name, data) {
     const showName = seen || caught || shiny;
     const displayName = showName ? name.toUpperCase() : "???"; 
 
-    const shinyIconClass = shiny ? "" : "pokedex-icon-dim";
-    const ballIconClass = caught ? "" : "pokedex-icon-dim";
+    const shinyIconClass = shiny ? "" : "icon-pokedex-dim";
+    const ballIconClass = caught ? "" : "icon-pokedex-dim";
 
     const typeBgHtml = types.length === 1
         ? `<div class="pokedex-type-single" style="background:${TYPE_COLORS[types[0]] || "#888"};"></div>`
@@ -3075,16 +3075,16 @@ function createPokedexCard(name, data) {
             ${typeBgHtml}
 
             <div class="pokedex-card-content">
-                <div class="pokedex-top-bar"></div>
-                <img src="${ICONS.shiny}" class="pokedex-corner-icon pokedex-shiny-icon pokedex-corner-left ${shinyIconClass}">
-                <div class="pokedex-number">#${String(pokemon.id).padStart(3, "0")}</div>
-                <img src="${ICONS.pokeball}" class="pokedex-corner-icon pokedex-ball-icon pokedex-corner-right ${ballIconClass}">
+                <div class="pokedex-card-top-bar"></div>
+                <img src="${ICONS.shiny}" class="icon-pokedex-corner icon-pokedex-shiny pokedex-card-corner-left ${shinyIconClass}">
+                <div class="pokedex-card-number">#${String(pokemon.id).padStart(3, "0")}</div>
+                <img src="${ICONS.pokeball}" class="icon-pokedex-corner icon-pokedex-ball pokedex-card-corner-right ${ballIconClass}">
 
-                <div class="pokedex-sprite-area">
-                    <img src="${spriteUrl}" class="${showShadow ? "pokedex-sprite-shadow" : ""}">
+                <div class="pokedex-card-sprite-area">
+                    <img src="${spriteUrl}" class="${showShadow ? "pokedex-card-sprite-shadow" : ""}">
                 </div>
 
-                <div class="pokedex-name-bar">
+                <div class="pokedex-card-name-bar">
                     ${displayName}
                 </div>
             </div>
