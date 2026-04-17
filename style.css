@@ -595,7 +595,7 @@ body {
     padding: 20px; 
 }
 
-.dex-grid { 
+.routedex-grid { 
     display: flex; 
     flex-direction: column; 
     gap: 10px; 
@@ -603,7 +603,7 @@ body {
     overflow-y: auto; 
 }
 
-.dex-entry {
+.routedex-entry {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -613,34 +613,34 @@ body {
     background: #f8f8f8;
 }
 
-.dex-entry-left {
+.routedex-entry-left {
     display: flex;
     align-items: center;
     gap: 10px;
     min-width: 0;
 }
 
-.dex-entry img {
+.routedex-entry img {
     width: 56px;
     height: 56px;
     image-rendering: pixelated;
     flex: 0 0 auto;
 }
 
-.dex-entry-name {
+.routedex-entry-name {
     font-weight: bold;
     color: #222;
     opacity: 1;
 }
 
-.dex-entry-status {
+.routedex-entry-status {
     font-size: 0.9em;
     font-weight: bold;
     text-align: right;
     white-space: nowrap;
 }
 
-.dex-item {
+.routedex-item {
     display: grid;
     grid-template-columns: 28px 28px 52px 1fr;
     align-items: center;
@@ -651,7 +651,7 @@ body {
     overflow: visible;
 }
 
-.dex-item > img {
+.routedex-item > img {
     width: 75px;
     height: 75px;
     image-rendering: pixelated;
@@ -661,7 +661,7 @@ body {
     margin-bottom: -8px;
 }
 
-.dex-name {
+.routedex-name {
     font-weight: bold;
     color: #222;
     white-space: nowrap;
@@ -669,11 +669,11 @@ body {
     text-overflow: ellipsis;
 }
 
-.dex-status {
+.routedex-status {
     display: contents;
 }
 
-.dex-top-bar {
+.pokedex-top-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -712,7 +712,7 @@ body {
     flex-shrink: 0;
 }
 
-.icon-dex-ball {
+.icon-routedex-ball {
     width: 52px;
     height: 52px;
     image-rendering: pixelated;
@@ -720,7 +720,7 @@ body {
     align-self: center;
 }
 
-.icon-dex-shiny {
+.icon-routedex-shiny {
     width: 32px;
     height: 32px;
     image-rendering: pixelated;
@@ -728,24 +728,24 @@ body {
     align-self: center;
 }
 
-.icon-dex-ball,
-.icon-dex-shiny {
+.icon-routedex-ball,
+.icon-routedex-shiny {
     justify-self: center;
     align-self: center;
 }
 
-.dex-owned,
-.dex-missing {
+.routedex-owned,
+.routedex-missing {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.dex-owned {
+.routedex-owned {
     opacity: 1;
 }
 
-.dex-missing {
+.routedex-missing {
     opacity: 0.15;
 }
 
@@ -883,7 +883,7 @@ body {
   width: 50%;
 }
 
-.dex-number {
+.pokedex-number {
   position: absolute;
   top: 5px; /* diminui (antes deve estar ~6px) */
   left: 50%;
@@ -896,33 +896,33 @@ body {
   line-height: 1;
 }
 
-.dex-corner-icon {
+.pokedex-corner-icon {
   position: absolute;    
   image-rendering: pixelated;
   z-index: 2;
 }
 
-.dex-shiny-icon {
+.pokedex-shiny-icon {
   top: 2px;
   width: 22px;
   height: 22px;
 }
 
-.dex-ball-icon {
+.pokedex-ball-icon {
   top: -3px;
   width: 30px;
   height: 30px;
 }
 
-.dex-corner-left {
+.pokedex-corner-left {
   left: 6px;
 }
 
-.dex-corner-right {
+.pokedex-corner-right {
   right: 6px;
 }
 
-.dex-sprite-area {
+.pokedex-sprite-area {
   position: absolute;
   top: 28px;
   left: 0;
@@ -934,18 +934,18 @@ body {
   z-index: 2;
 }
 
-.dex-sprite-area img {
+.pokedex-sprite-area img {
   width: 86px;
   height: 86px;
   image-rendering: pixelated;
 }
 
-.dex-sprite-shadow {
+.pokedex-sprite-shadow {
   filter: brightness(0);
   opacity: 0.55;
 }
 
-.dex-name-bar {
+.pokedex-name-bar {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -969,15 +969,15 @@ body {
   z-index: 2;
 }
 
-.dex-name-bar:has(:contains("???")) {
+.pokedex-name-bar:has(:contains("???")) {
   opacity: 0.8;
 }
 
-.dex-name-hidden {
+.pokedex-name-hidden {
   color: transparent;   /* esconde só o texto */
 }
 
-.dex-icon-dim {
+.pokedex-icon-dim {
   filter: grayscale(1) brightness(0.45);
   opacity: 0.9;
 }
