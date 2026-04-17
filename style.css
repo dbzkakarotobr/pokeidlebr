@@ -671,6 +671,8 @@ body {
     font-weight: bold;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 0 #000;
+    bottom: 3px; /* reduz espaço inferior */
+    line-height: 1;
 }
 
 .dex-status {
@@ -889,7 +891,7 @@ body {
 
 .dex-number {
   position: absolute;
-  top: 6px;
+  top: 2px; /* diminui (antes deve estar ~6px) */
   left: 50%;
   transform: translateX(-50%);
   font-size: 14px;
@@ -897,6 +899,7 @@ body {
   color: #fff;
   text-shadow: 1px 1px 0 #000;
   z-index: 2;
+  line-height: 1;
 }
 
 .dex-corner-icon {
