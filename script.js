@@ -2463,7 +2463,7 @@ const TYPE_COLORS = {
 };
 
 const WORLD_ROUTES = [
-    { name: "ROTA 01", encounters: ["Pidgey", 50, "Rattata", 50, "Pikachu", 50, "Psyduck", 50, "Oddish", 50, "Tentacool", 50], defeated: 0 },
+    { name: "ROTA 01", encounters: ["Pidgey", 50, "Rattata", 50, "Pikachu", 50, "Psyduck", 50, "Oddish", 50, "Tentacool", 50, "Ponyta", 50], defeated: 0 },
     { name: "ROTA 22", encounters: ["Rattata", 45, "Spearow", 45, "Mankey", 5], defeated: 0 },
     { name: "ROTA 02", encounters: ["Pidgey", 30, "Rattata", 40, "Caterpie", 15, "Weedle", 15], defeated: 0 },
     { name: "ROTA 03", encounters: ["Pidgey", 30, "Spearow", 40, "Rattata", 20, "Mankey", 10], defeated: 0 },
