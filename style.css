@@ -907,19 +907,19 @@ body {
 
 .dex-corner-icon {
   position: absolute;
-  top: 6px;
-  width: 16px;
-  height: 16px;
+  top: 2px;
+  width: 22px;
+  height: 22px;
   image-rendering: pixelated;
   z-index: 2;
 }
 
 .dex-corner-left {
-  left: 6px;
+  left: 10px;
 }
 
 .dex-corner-right {
-  right: 6px;
+  right: 10px;
 }
 
 .dex-sprite-area {
