@@ -2621,7 +2621,7 @@ function canAutoEvolveByLevel(pokemon) {
     const evo = getPokemonEvolution(pokemon.name);
     if (!evo) return null;
 
-    if (evo.method === "level" && pokemon.lvl >= evo.level) {
+    if (evo.method === "level" && pokemon.lvl >= evo.level) {        
         return evo.to;
     }
 
@@ -2648,6 +2648,7 @@ window.closeRoutedex = () => document.getElementById('routedex-modal').style.dis
 
 window.chooseStarter = function(name) {
     player.team.push({ name, lvl: 1, exp: 0, isShiny: false });
+    registerEncounter(name, false, true);
     document.getElementById('dps-icon').src = ICONS.dps;
     document.getElementById('gold-icon').src = ICONS.gold;
     document.getElementById('pokemon-icon').src = ICONS.pokes;
@@ -2801,6 +2802,8 @@ function handleVictory() {
                 exp: 0,
                 isShiny: p.isShiny
             });
+            
+            registerEncounter(target, p.isShiny, true);
         }
     });
   
@@ -3001,10 +3004,6 @@ document.addEventListener('keydown', function(e) {
         closeBagModal();
     }
 });
-
-function openPokedex() {
-  console.log("Abrir Pokedex (em desenvolvimento)");
-}
 
 function registerEncounter(name, isShiny = false, caught = false) {
     if (!player.pokedex[name]) {
