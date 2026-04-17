@@ -71,7 +71,7 @@
         <div class="gba-header">MENU</div>
 
         <div class="menu-grid">
-          <button class="menu-item" onclick="openPokedex()">
+          <button class="menu-item" onclick="openPokedexModal()">
             <div class="menu-icon-wrap">
               <img src="https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png" class="menu-icon menu-icon-pokedex" alt="Pokedex">
             </div>
@@ -139,6 +139,23 @@
         </div>
         <div id="bag-items-list" class="bag-grid"></div>
         <button class="gba-btn-select" style="margin-top:20px;" onclick="closeBagModal()">FECHAR</button>
+      </div>
+    </div>
+    
+    <div id="pokedex-modal" class="modal-overlay">
+      <div class="modal-content pokedex-modal-content">
+        <div class="gba-header pokedex-header">
+          <img src="https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/icon-pokedex.png" class="header-icon header-icon-pokedex">
+          <span>POKEDEX</span>
+        </div>
+
+        <div class="pokedex-topbar">
+          <span id="pokedex-count">0 / 151</span>
+        </div>
+
+        <div id="pokedex-list" class="pokedex-grid"></div>
+
+        <button class="gba-btn-select" style="margin-top:20px;" onclick="closePokedexModal()">FECHAR</button>
       </div>
     </div>
   </div>
