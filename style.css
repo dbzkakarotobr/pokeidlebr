@@ -667,7 +667,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 13px;   /* antes devia estar ~10-11 */
+    font-size: 16px;   /* antes devia estar 10 */
     font-weight: bold;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 0 #000;
@@ -855,7 +855,7 @@ body {
   box-shadow: 4px 4px 0 #000;
   overflow: hidden;
   background: #ddd;
-  font-size: 12px; /* base geral do card */
+  font-size: 14px; /* base geral do card */
 }
 
 .pokedex-card-content {
@@ -892,7 +892,7 @@ body {
   top: 6px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   color: #fff;
   text-shadow: 1px 1px 0 #000;
