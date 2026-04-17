@@ -665,7 +665,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 3px;
+    bottom: 2px;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
@@ -894,7 +894,7 @@ body {
 
 .dex-number {
   position: absolute;
-  top: 3px; /* diminui (antes deve estar ~6px) */
+  top: 5px; /* diminui (antes deve estar ~6px) */
   left: 50%;
   transform: translateX(-50%);
   font-size: 14px;
@@ -962,14 +962,10 @@ body {
   height: 26px;
   background: rgba(0, 0, 0, 0.28);
   color: #fff;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;  
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 1px 1px 0 #000;
-  z-index: 2;
-  padding: 0 4px;
+  z-index: 2;  
   box-sizing: border-box;
   text-align: center;  
 }
