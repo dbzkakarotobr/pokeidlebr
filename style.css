@@ -662,16 +662,18 @@ body {
 }
 
 .dex-name {
-    position: absolute;    
-    color: #fff; /*color: #222; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 16px;   /* antes devia estar 10 */
-    font-weight: bold;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 0 #000;
-    bottom: 2px; /* reduz espaço inferior */
     line-height: 1;
     z-index: 2;
 }
