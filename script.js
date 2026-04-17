@@ -17,29 +17,6 @@ const ICONS = {
     trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
 };
 
-const INITIAL_POKEDEX = Object.fromEntries(
-    Object.keys(POKEMON_DATA).map(name => [
-        name,
-        { seen: false, caught: false, shiny: false }
-    ])
-);
-
-let player = {
-    gold: 0,
-    team: [],
-    totalAtk: 0,
-    currentRouteIndex: 0,
-    items: {
-        "Thunder Stone": 0,
-        "Water Stone": 0,
-        "Fire Stone": 0,
-        "Leaf Stone": 0,
-        "Moon Stone": 0,
-        "Trade Stone": 0
-    },
-    pokedex: structuredClone(INITIAL_POKEDEX)
-};
-
 const TYPE_DROP_TABLES = {
     electric: [
         { item: "Thunder Stone", basic: 20, mid: 30, final: 50 }
@@ -2512,6 +2489,29 @@ const WORLD_ROUTES = [
     { name: "ROTA 21", encounters: ["Tentacool", 80, "Tentacruel", 20], defeated: 0 },
     { name: "ROTA 23", encounters: ["Spearow", 10, "Fearow", 10, "Ekans", 10, "Arbok", 10, "Sandshrew", 10, "Sandslash", 10, "Nidorina", 10, "Nidorino", 10, "Mankey", 10, "Primeape", 10], defeated: 0 }
 ];
+
+const INITIAL_POKEDEX = Object.fromEntries(
+    Object.keys(POKEMON_DATA).map(name => [
+        name,
+        { seen: false, caught: false, shiny: false }
+    ])
+);
+
+let player = {
+    gold: 0,
+    team: [],
+    totalAtk: 0,
+    currentRouteIndex: 0,
+    items: {
+        "Thunder Stone": 0,
+        "Water Stone": 0,
+        "Fire Stone": 0,
+        "Leaf Stone": 0,
+        "Moon Stone": 0,
+        "Trade Stone": 0
+    },
+    pokedex: structuredClone(INITIAL_POKEDEX)
+};
 
 let currentEnemy = null;
 let currentSort = { key: 'lvl', order: 'desc' };
