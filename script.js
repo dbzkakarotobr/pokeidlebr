@@ -2423,6 +2423,27 @@ const POKEMON_DROP_TABLES = {
     // ]
 };
 
+const TYPE_COLORS = {
+    normal: "#A8A878",
+    fire: "#F08030",
+    water: "#6890F0",
+    electric: "#F8D030",
+    grass: "#78C850",
+    ice: "#98D8D8",
+    fighting: "#C03028",
+    poison: "#A040A0",
+    ground: "#E0C068",
+    flying: "#A890F0",
+    psychic: "#F85888",
+    bug: "#A8B820",
+    rock: "#B8A038",
+    ghost: "#705898",
+    dragon: "#7038F8",
+    dark: "#705848",
+    steel: "#B8B8D0",
+    fairy: "#EE99AC"
+};
+
 const WORLD_ROUTES = [
     { name: "ROTA 01", encounters: ["Pidgey", 50, "Rattata", 50, "Pikachu", 50, "Psyduck", 50, "Oddish", 50, "Tentacool", 50], defeated: 0 },
     { name: "ROTA 22", encounters: ["Rattata", 45, "Spearow", 45, "Mankey", 5], defeated: 0 },
@@ -3002,3 +3023,82 @@ function registerEncounter(name, isShiny = false, caught = false) {
     }
 }
 
+window.openPokedexModal = function() {
+    renderPokedex();
+    document.getElementById('pokedex-modal').style.display = 'flex';
+};
+
+window.closePokedexModal = function() {
+    document.getElementById('pokedex-modal').style.display = 'none';
+};
+
+document.getElementById('pokedex-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePokedexModal();
+    }
+});
+
+function createPokedexCard(name, data) {
+    const dexData = player.pokedex[name];
+    const pokemon = POKEMON_DATA[name];
+    const types = pokemon.types || ["normal"];
+
+    const seen = dexData?.seen;
+    const caught = dexData?.caught;
+    const shiny = dexData?.shiny;
+
+    let spriteUrl;
+    if (!seen && !caught && !shiny) {
+        spriteUrl = getSpriteUrl(pokemon.id, false);
+    } else if (shiny) {
+        spriteUrl = getSpriteUrl(pokemon.id, true);
+    } else {
+        spriteUrl = getSpriteUrl(pokemon.id, false);
+    }
+
+    const showShadow = !seen && !caught && !shiny;
+    const showName = seen || caught || shiny;
+    const displayName = showName ? name.toUpperCase() : "???"; 
+
+    const shinyIconClass = shiny ? "" : "dex-icon-dim";
+    const ballIconClass = caught ? "" : "dex-icon-dim";
+
+    const typeBgHtml = types.length === 1
+        ? `<div class="pokedex-type-single" style="background:${TYPE_COLORS[types[0]] || "#888"};"></div>`
+        : `
+            <div class="pokedex-type-left" style="background:${TYPE_COLORS[types[0]] || "#888"};"></div>
+            <div class="pokedex-type-right" style="background:${TYPE_COLORS[types[1]] || "#888"};"></div>
+          `;
+
+    return `
+        <div class="pokedex-card">
+            ${typeBgHtml}
+
+            <div class="pokedex-card-content">
+                <div class="dex-top-bar"></div>
+                <img src="${ICONS.shiny}" class="dex-corner-icon dex-corner-left ${shinyIconClass}">
+                <div class="dex-number">#${String(pokemon.id).padStart(3, "0")}</div>
+                <img src="${ICONS.pokeball}" class="dex-corner-icon dex-corner-right ${ballIconClass}">
+
+                <div class="dex-sprite-area">
+                    <img src="${spriteUrl}" class="${showShadow ? "dex-sprite-shadow" : ""}">
+                </div>
+
+                <div class="dex-name-bar">
+                    ${displayName}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderPokedex() {
+    const list = document.getElementById('pokedex-list');
+
+    const names = Object.keys(POKEMON_DATA).sort((a, b) => POKEMON_DATA[a].id - POKEMON_DATA[b].id);
+
+    list.innerHTML = names.map(name => createPokedexCard(name)).join("");
+
+    const caughtCount = names.filter(name => player.pokedex[name]?.caught).length;
+    document.getElementById('pokedex-count').textContent = `${caughtCount} / ${names.length}`;
+}
