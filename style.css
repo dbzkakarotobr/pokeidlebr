@@ -906,12 +906,19 @@ body {
 }
 
 .dex-corner-icon {
-  position: absolute;
-  top: 2px;
+  position: absolute;  
   width: 22px;
   height: 22px;
   image-rendering: pixelated;
   z-index: 2;
+}
+
+.dex-shiny-icon {
+  top: 2px;
+}
+
+.dex-ball-icon {
+  top: 1px;
 }
 
 .dex-corner-left {
