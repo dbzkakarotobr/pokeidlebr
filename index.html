@@ -33,22 +33,24 @@
       <div class="panel">
         <div class="gba-header">MEU STATUS</div>
 
-        <div class="status-row">
-          <img id="gold-icon" class="icon-hud">
-          <span>GOLD:</span>
-          <span id="gold-count">0</span>
-        </div>
-
-        <div class="status-row">
-          <img id="dps-icon" class="icon-hud">
-          <span>DPS TOTAL:</span>
-          <span id="total-atk">0</span>
-        </div>
-
-        <div class="status-row">
-          <img id="pokemon-icon" class="icon-hud">
-          <span>POKEMONS:</span>
-          <span id="pokemon-count">0</span>
+        <div class="battle-status-bar">
+          <div class="battle-status-card">
+            <div id="gold-count" class="battle-status-value">0</div>
+            <div class="battle-status-label">GOLD</div>
+            <img id="gold-icon" class="battle-status-icon">
+          </div>
+        
+          <div class="battle-status-card">
+            <div id="total-atk" class="battle-status-value">0</div>
+            <div class="battle-status-label">DPS TOTAL</div>
+            <img id="dps-icon" class="battle-status-icon">
+          </div>
+        
+          <div class="battle-status-card">
+            <div id="pokemon-count" class="battle-status-value">0</div>
+            <div class="battle-status-label">POKEMONS</div>
+            <img id="pokemon-icon" class="battle-status-icon">
+          </div>
         </div>
       </div>
 
