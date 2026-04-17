@@ -796,7 +796,7 @@ body {
 
 .pokedex-card-sprite-area {
     position: absolute;
-    top: 28px;
+    top: 24px;
     left: 0;
     z-index: 2;
     display: flex;
