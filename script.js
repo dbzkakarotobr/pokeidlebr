@@ -2469,6 +2469,13 @@ const ICONS = {
     trade: "https://raw.githubusercontent.com/dbzkakarotobr/pokeidlebr/main/assets/icons/stones/trade-stone.png"
 };
 
+const INITIAL_POKEDEX = Object.fromEntries(
+    Object.keys(POKEMON_DATA).map(name => [
+        name,
+        { seen: false, caught: false, shiny: false }
+    ])
+);
+
 let player = {
     gold: 0,
     team: [],
@@ -2481,8 +2488,10 @@ let player = {
         "Leaf Stone": 0,
         "Moon Stone": 0,
         "Trade Stone": 0
-    }
+    },
+    pokedex: structuredClone(INITIAL_POKEDEX)
 };
+
 let currentEnemy = null;
 let currentSort = { key: 'lvl', order: 'desc' };
 
@@ -2714,6 +2723,8 @@ function spawnEnemy() {
 
     document.getElementById('enemy-img-container').innerHTML =
         `<img src="${getSpriteUrl(data.id, isShiny)}">`;
+  
+    registerEncounter(name);
 
     updateHPDisplay();
 }
@@ -2771,8 +2782,11 @@ function handleVictory() {
             });
         }
     });
-
+  
     player.totalAtk = player.team.reduce((sum, p) => sum + calculateAtk(p.name, p.lvl, p.isShiny), 0);
+    
+    registerEncounter(currentEnemy.name, currentEnemy.isShiny, true);
+  
     updateUI();
     spawnEnemy();
 }
@@ -2970,3 +2984,21 @@ document.addEventListener('keydown', function(e) {
 function openPokedex() {
   console.log("Abrir Pokedex (em desenvolvimento)");
 }
+
+function registerEncounter(name, isShiny = false, caught = false) {
+    if (!player.pokedex[name]) {
+        console.warn("Pokemon não encontrado na pokedex:", name);
+        return;
+    }
+
+    player.pokedex[name].seen = true;
+
+    if (caught) {
+        player.pokedex[name].caught = true;
+
+        if (isShiny) {
+            player.pokedex[name].shiny = true;
+        }
+    }
+}
+
