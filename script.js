@@ -3122,15 +3122,17 @@ function showItemLog(itemName) {
     el.className = 'reward-log-item';
 
     el.innerHTML = `
-        ${itemName}
-        <img src="${itemIcons[itemName] || ICONS.mochila}">
+        <span>${itemName}</span>
+        <img src="${itemIcons[itemName] || ICONS.mochila}" class="icon-reward">
     `;
 
     log.appendChild(el);
-    
+
     if (log.children.length > 3) {
         log.firstChild.remove();
     }
-    
-    setTimeout(() => el.remove(), 2000);
+
+    setTimeout(() => {
+        el.remove();
+    }, 2200);
 }
