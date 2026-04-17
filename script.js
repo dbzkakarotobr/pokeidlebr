@@ -2762,6 +2762,10 @@ function handleVictory() {
     const droppedItems = tryDrops(currentEnemy.name);
     addItemsToInventory(droppedItems);
 
+    droppedItems.forEach(itemName => {
+        showItemLog(itemName);
+    });
+
     const teamBefore = player.team.length;
 
     if (!player.team.some(p => p.name === currentEnemy.name && p.isShiny === currentEnemy.isShiny)) {
@@ -3100,4 +3104,33 @@ function renderPokedex() {
 
     const caughtCount = names.filter(name => player.pokedex[name]?.caught).length;
     document.getElementById('pokedex-count').textContent = `${caughtCount} / ${names.length}`;
+}
+
+function showItemLog(itemName) {
+    const log = document.getElementById('reward-log');
+
+    const itemIcons = {
+        "Thunder Stone": ICONS.thunder,
+        "Water Stone": ICONS.water,
+        "Fire Stone": ICONS.fire,
+        "Leaf Stone": ICONS.leaf,
+        "Moon Stone": ICONS.moon,
+        "Trade Stone": ICONS.trade
+    };
+
+    const el = document.createElement('div');
+    el.className = 'reward-log-item';
+
+    el.innerHTML = `
+        ${itemName}
+        <img src="${itemIcons[itemName] || ICONS.mochila}">
+    `;
+
+    log.appendChild(el);
+    
+    if (log.children.length > 3) {
+        log.firstChild.remove();
+    }
+    
+    setTimeout(() => el.remove(), 2000);
 }
