@@ -595,7 +595,7 @@ body {
     padding: 20px; 
 }
 
-.route-dex-grid { 
+.dex-grid { 
     display: flex; 
     flex-direction: column; 
     gap: 10px; 
@@ -640,7 +640,7 @@ body {
     white-space: nowrap;
 }
 
-.route-dex-item {
+.dex-item {
     display: grid;
     grid-template-columns: 28px 28px 52px 1fr;
     align-items: center;
@@ -651,7 +651,7 @@ body {
     overflow: visible;
 }
 
-.route-dex-item > img {
+.dex-item > img {
     width: 75px;
     height: 75px;
     image-rendering: pixelated;
@@ -661,7 +661,7 @@ body {
     margin-bottom: -8px;
 }
 
-.route-dex-name {
+.dex-name {
     font-weight: bold;
     color: #222;
     white-space: nowrap;
@@ -712,7 +712,7 @@ body {
     flex-shrink: 0;
 }
 
-.icon-route-dex-ball {
+.icon-dex-ball {
     width: 52px;
     height: 52px;
     image-rendering: pixelated;
@@ -720,7 +720,7 @@ body {
     align-self: center;
 }
 
-.icon-route-dex-shiny {
+.icon-dex-shiny {
     width: 32px;
     height: 32px;
     image-rendering: pixelated;
@@ -728,24 +728,24 @@ body {
     align-self: center;
 }
 
-.icon-route-dex-ball,
-.icon-route-dex-shiny {
+.icon-dex-ball,
+.icon-dex-shiny {
     justify-self: center;
     align-self: center;
 }
 
-.route-dex-owned,
-.route-dex-missing {
+.dex-owned,
+.dex-missing {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.route-dex-owned {
+.dex-owned {
     opacity: 1;
 }
 
-.route-dex-missing {
+.dex-missing {
     opacity: 0.15;
 }
 
